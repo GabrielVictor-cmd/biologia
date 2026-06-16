@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida Equilibrada | Obesidade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .site-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .section-bg {
+            background: transparent;
+        }
+        .card-hover:hover {
+            transform: translateY(-12px);
+            transition: all 0.4s ease;
+        }
+        .green-accent { color: #10b981; }
+    </style>
+</head>
+<body class="site-bg text-zinc-100 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="backdrop-blur-md fixed w-full z-50 text-white">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl">🌿</div>
+                <h1 class="text-2xl font-bold">Vida Equilibrada</h1>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#inicio" class="hover:text-emerald-400 transition">Início</a>
+                <a href="#o-que-e" class="hover:text-emerald-400 transition">O que é</a>
+                <a href="#causas" class="hover:text-emerald-400 transition">Causas</a>
+                <a href="#prevencao" class="hover:text-emerald-400 transition">Prevenção</a>
+                <a href="#alimentacao" class="hover:text-emerald-400 transition">Alimentação</a>
+                <a href="#treino" class="hover:text-emerald-400 transition">Treinos</a>
+                <a href="#quiz" class="hover:text-emerald-400 transition">Quiz</a>
+                <a href="#IMC" class="hover:text-emerald-400 transition">IMC</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight">
+                    Obesidade: <span class="green-accent">Entenda e transforme</span>
+                </h1>
+                <p class="text-xl text-zinc-300 max-w-lg">
+                    Uma doença crônica que afeta milhões de brasileiros. Conheça as causas, riscos e como prevenir.
+                </p>
+                <a href="#IMC" 
+                   class="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 transition px-8 py-4 rounded-2xl text-lg font-semibold">
+                    Calcular meu IMC <i class="ml-3 fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="flex justify-end">
+                <div class="bg-zinc-900/90 backdrop-blur p-6 rounded-3xl border border-emerald-900 w-80">
+                    <img src="https://picsum.photos/id/292/600/600" alt="Planta" class="w-32 mx-auto mb-6">
+                    <h3 class="text-center text-2xl font-semibold mb-2">Cuide da sua saúde</h3>
+                    <p class="text-center text-zinc-400">Comece hoje sua jornada para uma vida mais equilibrada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Causas e Consequências -->
+    <section id="causas" class="py-24">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-4xl font-bold mb-8">O que é obesidade?</h2>
+                <p class="text-lg text-zinc-300 mb-6">
+                    Obesidade é uma doença crônica caracterizada pelo acúmulo excessivo de gordura em diferentes partes do corpo, que pode prejudicar a saúde e aumentar o risco de outras doenças, como diabetes, pressão alta, gordura no fígado ou colesterol alto.
+                </p>
+                <h3 class="text-2xl font-semibold mb-4">Causas da obesidade</h3>
+                <p class="text-zinc-400 mb-4">
+                    A obesidade pode ser causada por uma combinação de fatores, incluindo genética, hábitos alimentares inadequados, falta de atividade física e fatores ambientais. O consumo excessivo de alimentos ricos em calorias e o sedentarismo são os principais contribuintes para o desenvolvimento da obesidade.
+                </p>
+                <p class="text-zinc-400 mb-4">
+                    Além disso, fatores psicológicos, como estresse e depressão, podem levar ao consumo emocional de alimentos, contribuindo para o ganho de peso.
+                </p>
+                <h3 class="text-2xl font-semibold mb-4">Obesidade infantil</h3>
+                <p class="text-zinc-400">
+                    A obesidade infantil pode causar ganho rápido de peso, cansaço, dificuldade para correr e alterações na postura. O acompanhamento com um pediatra é fundamental, principalmente porque o crescimento da criança pode modificar a avaliação.
+                </p>
+            </div>
+            <div class="bg-zinc-900 rounded-3xl p-10">
+                <h2 class="text-4xl font-bold mb-8">Consequências</h2>
+                <ul class="space-y-5 text-lg text-zinc-300">
+                    <li class="flex gap-4"><span class="text-emerald-500">•</span> Diabetes tipo 2</li>
+                    <li class="flex gap-4"><span class="text-emerald-500">•</span> Doenças cardiovasculares</li>
+                    <li class="flex gap-4"><span class="text-emerald-500">•</span> Hipertensão</li>
+                    <li class="flex gap-4"><span class="text-emerald-500">•</span> Certos tipos de câncer</li>
+                    <li class="flex gap-4"><span class="text-emerald-500">•</span> Impacto na qualidade de vida e na saúde mental</li>
+                </ul>
+                <div class="mt-10">
+                    <h3 class="text-2xl font-semibold mb-4">Exames que ajudam no diagnóstico</h3>
+                    <ul class="space-y-3 text-zinc-400">
+                        <li>Bioimpedância para avaliar gordura e massa muscular</li>
+                        <li>Ultrassonografia abdominal para avaliar a gordura visceral</li>
+                        <li>Provas de função hepática e renal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Importância da conscientização -->
+    <section id="sobre" class="py-24 section-bg">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">Importância da conscientização</h2>
+            <p class="text-xl text-zinc-300 max-w-3xl mx-auto">
+                A conscientização sobre a obesidade é fundamental para promover hábitos saudáveis e prevenir o desenvolvimento dessa condição. Educar as pessoas sobre os riscos associados à obesidade e as estratégias de prevenção pode ajudar a reduzir a incidência dessa doença e melhorar a saúde pública.
+            </p>
+        </div>
+    </section>
+
+    <!-- Prevenção -->
+    <section id="prevencao" class="py-24">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">Prevenção e Tratamento</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                    <h3 class="text-2xl font-semibold mb-4">Prevenção</h3>
+                    <p class="text-zinc-400 mb-4">A prevenção envolve a adoção de um estilo de vida saudável, incluindo uma dieta equilibrada e a prática regular de exercícios físicos.</p>
+                    <ul class="text-left text-zinc-300 space-y-3">
+                        <li>Alimentação equilibrada e variada</li>
+                        <li>Atividade física constante</li>
+                        <li>Hidratação adequada</li>
+                        <li>Gerenciamento do estresse</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                    <h3 class="text-2xl font-semibold mb-4">Tratamento</h3>
+                    <p class="text-zinc-400 mb-4">O tratamento pode incluir mudanças no estilo de vida, terapia comportamental, medicamentos e, em casos mais graves, cirurgia bariátrica.</p>
+                    <p class="text-zinc-400">O acompanhamento médico é essencial para orientar o diagnóstico, confirmar a obesidade com segurança e definir o plano de cuidado adequado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alimentação -->
+    <section id="alimentacao" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">Alimentação saudável</h2>
+                <p class="text-zinc-300 max-w-2xl mx-auto mt-4">Uma dieta equilibrada e escolhas conscientes ajudam a combater a obesidade e a manter a saúde.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                    <h3 class="text-2xl font-semibold mb-4">Mantenha uma dieta equilibrada</h3>
+                    <p class="text-zinc-400">Inclua frutas, verduras, grãos integrais, proteínas magras e gorduras saudáveis em suas refeições.</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                    <h3 class="text-2xl font-semibold mb-4">Coma de forma consciente</h3>
+                    <p class="text-zinc-400">Evite distrações ao se alimentar e aprecie cada mordida, sem comer até ficar cheio demais.</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                    <h3 class="text-2xl font-semibold mb-4">Beba muita água</h3>
+                    <p class="text-zinc-400">A água hidrata, controla a fome e não contém calorias, sendo sempre a melhor escolha.</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                    <h3 class="text-2xl font-semibold mb-4">Inclua proteínas nas refeições</h3>
+                    <p class="text-zinc-400">Proteínas ajudam a controlar a fome e manter a massa muscular com fontes como peixes, frango, tofu e feijão.</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                    <h3 class="text-2xl font-semibold mb-4">Evite comidas rápidas</h3>
+                    <p class="text-zinc-400">Fast food e alimentos processados são ricos em calorias vazias e geralmente pobres em nutrientes.</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                    <h3 class="text-2xl font-semibold mb-4">Pequenas refeições regulares</h3>
+                    <p class="text-zinc-400">Comer porções menores ao longo do dia ajuda a controlar a fome e manter o metabolismo ativo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treinos -->
+    <section id="treino" class="py-24 section-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-4xl font-bold mb-8">Treinos contra a obesidade</h2>
+                    <p class="text-zinc-300 mb-6">O treino ideal combina exercícios aeróbicos para queima calórica e musculação para ganho de massa muscular e aceleração do metabolismo.</p>
+                    <ul class="space-y-4 text-zinc-300">
+                        <li><span class="font-semibold">Frequência recomendada:</span> pelo menos 150 minutos semanais de exercícios aeróbicos.</li>
+                        <li><span class="font-semibold">Treinamento resistido:</span> musculação de 2 a 3 vezes por semana.</li>
+                        <li><span class="font-semibold">Proporção inicial:</span> cerca de 70% aeróbicos e 30% fortalecimento.</li>
+                        <li><span class="font-semibold">Adaptação:</span> natação, hidroginástica e ciclismo são opções de baixo impacto.</li>
+                        <li><span class="font-semibold">Suporte médico:</span> consulte um médico antes de começar e busque acompanhamento profissional.</li>
+                    </ul>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-10">
+                    <h3 class="text-2xl font-semibold mb-5">Dicas para treinar com segurança</h3>
+                    <div class="space-y-4 text-zinc-300">
+                        <p>Respeite seu ritmo e comece com intensidade leve, aumentando gradualmente.</p>
+                        <p>Evite lesões priorizando constância em vez de esforço extremo logo no início.</p>
+                        <p>O acompanhamento profissional ajuda a personalizar o treino e ajustar a intensidade de forma segura.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O que é obesidade -->
+    <section id="IMC" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Calcule seu IMC</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="prose prose-invert max-w-none text-lg">
+                    <p>O Índice de Massa Corporal (IMC) é uma medida que relaciona o peso e a altura de uma pessoa, sendo amplamente utilizado para avaliar se ela está com peso adequado.</p>
+                    <p class="mt-6">Para calcular o IMC, utilize a fórmula: IMC = peso (kg) / [altura (m)]². O IMC não mede a gordura corporal diretamente, por isso o ideal é consultar um endocrinologista para avaliação completa.</p>
+                </div>
+                <div class="bg-zinc-800 p-8 rounded-3xl">
+                    <h3 class="text-2xl font-semibold mb-6">Como saber se tenho obesidade?</h3>
+                    <div id="imc-result" class="hidden text-center py-6"></div>
+                    <div class="space-y-4">
+                        <input type="number" id="peso" placeholder="Peso (kg)" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4">
+                        <input type="number" id="altura" placeholder="Altura (cm)" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4">
+                        <button onclick="calcularIMC()" 
+                                class="w-full bg-emerald-600 hover:bg-emerald-500 transition py-4 rounded-2xl font-semibold">
+                            Calcular IMC
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz -->
+    <section id="quiz" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">Quiz sobre obesidade</h2>
+                <p class="text-zinc-300 max-w-2xl mx-auto mt-4">Teste seus conhecimentos com perguntas rápidas sobre obesidade, prevenção e hábitos saudáveis.</p>
+            </div>
+            <div class="bg-zinc-900 rounded-3xl p-10 grid gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">1. O que caracteriza a obesidade?</h3>
+                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q1" value="q1a" class="accent-emerald-500"> Ter hipertensão arterial</label>
+                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q1" value="q1b" class="accent-emerald-500"> Acúmulo excessivo de gordura corporal</label>
+                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q1" value="q1c" class="accent-emerald-500"> Sensação de cansaço constante</label>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">2. Como se calcula o IMC?</h3>
+                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q2" value="q2a" class="accent-emerald-500"> peso / altura²</label>
+                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q2" value="q2b" class="accent-emerald-500"> altura / peso²</label>
+                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q2" value="q2c" class="accent-emerald-500"> peso + altura</label>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">3. Qual hábito ajuda a prevenir a obesidade?</h3>
+                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q3" value="q3a" class="accent-emerald-500"> Praticar exercícios regularmente</label>
+                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q3" value="q3b" class="accent-emerald-500"> Comer fast food todos os dias</label>
+                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q3" value="q3c" class="accent-emerald-500"> Beber refrigerante frequentemente</label>
+                </div>
+                <div class="text-center">
+                    <button onclick="avaliarQuiz()" class="bg-emerald-600 hover:bg-emerald-500 transition px-10 py-4 rounded-2xl font-semibold">Ver resultado</button>
+                    <div id="quiz-result" class="mt-6 text-center text-zinc-100"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-zinc-500">
+        <p>© 2026 Vida Equilibrada - Construct by Arthur Custodio e Gabriel Victor 3º ano</p>
+    </footer>
+
+    <script>
+        function calcularIMC() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const alturaCm = parseFloat(document.getElementById('altura').value);
+            
+            if (!peso || !alturaCm) {
+                alert("Por favor, preencha peso e altura.");
+                return;
+            }
+            
+            const altura = alturaCm / 100;
+            const imc = (peso / (altura * altura)).toFixed(1);
+            let classificacao = '';
+            
+            if (imc < 18.5) classificacao = 'Abaixo do peso';
+            else if (imc < 25) classificacao = 'Peso normal';
+            else if (imc < 30) classificacao = 'Sobrepeso';
+            else classificacao = 'Obesidade';
+            
+            document.getElementById('imc-result').innerHTML = `
+                <div class="text-6xl font-bold text-emerald-400">${imc}</div>
+                <p class="mt-2 text-xl">${classificacao}</p>
+            `;
+            document.getElementById('imc-result').classList.remove('hidden');
+        }
+
+        function avaliarQuiz() {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            
+            if (!q1 || !q2 || !q3) {
+                alert("Por favor, responda todas as perguntas do quiz.");
+                return;
+            }
+            
+            let score = 0;
+            if (q1.value === 'q1b') score += 1;
+            if (q2.value === 'q2a') score += 1;
+            if (q3.value === 'q3a') score += 1;
+            
+            const messages = [
+                'Continue estudando! Revise as seções de prevenção e diagnóstico.',
+                'Você está no caminho certo. Leia mais sobre hábitos saudáveis.',
+                'Muito bom! Você conhece bem os conceitos importantes.',
+                'Excelente! Você entende bem a obesidade e a prevenção.'
+            ];
+            
+            document.getElementById('quiz-result').innerHTML = `
+                <div class="text-3xl font-bold text-emerald-400">${score}/3 acertos</div>
+                <p class="mt-3 text-lg text-zinc-300">${messages[score]}</p>
+            `;
+        }
+
+        // Tailwind script já incluído
+    </script>
+</body>
+</html>
