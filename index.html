@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; }
         .site-bg {
             background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://picsum.photos/id/1015/2000/1200');
@@ -28,21 +29,39 @@
 <body class="site-bg text-zinc-100 overflow-x-hidden">
 
     <!-- Navbar -->
-    <nav class="backdrop-blur-md fixed w-full z-50 text-white">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav class="backdrop-blur-2xl fixed w-full z-50 text-white shadow-2xl border-b border-zinc-800/40 bg-zinc-950/70">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl">🌿</div>
-                <h1 class="text-2xl font-bold">Vida Equilibrada</h1>
+                <div class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">🌿</div>
+                <div>
+                    <p class="text-base font-semibold">Vida Equilibrada</p>
+                    <p class="text-xs text-zinc-400">Obesidade e bem-estar</p>
+                </div>
             </div>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#inicio" class="hover:text-emerald-400 transition">Início</a>
-                <a href="#o-que-e" class="hover:text-emerald-400 transition">O que é</a>
-                <a href="#causas" class="hover:text-emerald-400 transition">Causas</a>
-                <a href="#prevencao" class="hover:text-emerald-400 transition">Prevenção</a>
-                <a href="#alimentacao" class="hover:text-emerald-400 transition">Alimentação</a>
-                <a href="#treino" class="hover:text-emerald-400 transition">Treinos</a>
-                <a href="#quiz" class="hover:text-emerald-400 transition">Quiz</a>
-                <a href="#IMC" class="hover:text-emerald-400 transition">IMC</a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-100">
+                <a href="#inicio" class="hover:text-emerald-300 transition">Início</a>
+                <a href="#o-que-e" class="hover:text-emerald-300 transition">O que é</a>
+                <a href="#causas" class="hover:text-emerald-300 transition">Causas</a>
+                <a href="#prevencao" class="hover:text-emerald-300 transition">Prevenção</a>
+                <a href="#alimentacao" class="hover:text-emerald-300 transition">Alimentação</a>
+                <a href="#treino" class="hover:text-emerald-300 transition">Treinos</a>
+                <a href="#IMC" class="hover:text-emerald-300 transition">IMC</a>
+                <a href="quiz.html" class="hover:text-emerald-300 transition">Quiz</a>
+            </div>
+            <button onclick="toggleMenu()" class="md:hidden p-3 rounded-2xl bg-zinc-900/95 border border-zinc-800 shadow-lg text-emerald-300 hover:bg-zinc-800 transition focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                <i id="menu-icon" class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950/95 backdrop-blur-xl shadow-2xl rounded-b-3xl">
+            <div class="px-6 py-5 flex flex-col gap-3 text-sm font-medium text-zinc-100">
+                <a href="#inicio" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Início</a>
+                <a href="#o-que-e" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">O que é</a>
+                <a href="#causas" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Causas</a>
+                <a href="#prevencao" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Prevenção</a>
+                <a href="#alimentacao" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Alimentação</a>
+                <a href="#treino" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Treinos</a>
+                <a href="#IMC" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">IMC</a>
+                <a href="quiz.html" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Quiz</a>
             </div>
         </div>
     </nav>
@@ -62,20 +81,14 @@
                     Calcular meu IMC <i class="ml-3 fas fa-arrow-right"></i>
                 </a>
             </div>
-            <div class="flex justify-end">
-                <div class="bg-zinc-900/90 backdrop-blur p-6 rounded-3xl border border-emerald-900 w-80">
-                    <img src="https://picsum.photos/id/292/600/600" alt="Planta" class="w-32 mx-auto mb-6">
-                    <h3 class="text-center text-2xl font-semibold mb-2">Cuide da sua saúde</h3>
-                    <p class="text-center text-zinc-400">Comece hoje sua jornada para uma vida mais equilibrada</p>
-                </div>
-            </div>
+
         </div>
     </section>
 
     <!-- Causas e Consequências -->
     <section id="causas" class="py-24">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
-            <div>
+            <div id="o-que-e">
                 <h2 class="text-4xl font-bold mb-8">O que é obesidade?</h2>
                 <p class="text-lg text-zinc-300 mb-6">
                     Obesidade é uma doença crônica caracterizada pelo acúmulo excessivo de gordura em diferentes partes do corpo, que pode prejudicar a saúde e aumentar o risco de outras doenças, como diabetes, pressão alta, gordura no fígado ou colesterol alto.
@@ -233,42 +246,6 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Quiz -->
-    <section id="quiz" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold">Quiz sobre obesidade</h2>
-                <p class="text-zinc-300 max-w-2xl mx-auto mt-4">Teste seus conhecimentos com perguntas rápidas sobre obesidade, prevenção e hábitos saudáveis.</p>
-            </div>
-            <div class="bg-zinc-900 rounded-3xl p-10 grid gap-8">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">1. O que caracteriza a obesidade?</h3>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q1" value="q1a" class="accent-emerald-500"> Ter hipertensão arterial</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q1" value="q1b" class="accent-emerald-500"> Acúmulo excessivo de gordura corporal</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q1" value="q1c" class="accent-emerald-500"> Sensação de cansaço constante</label>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">2. Como se calcula o IMC?</h3>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q2" value="q2a" class="accent-emerald-500"> peso / altura²</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q2" value="q2b" class="accent-emerald-500"> altura / peso²</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q2" value="q2c" class="accent-emerald-500"> peso + altura</label>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">3. Qual hábito ajuda a prevenir a obesidade?</h3>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q3" value="q3a" class="accent-emerald-500"> Praticar exercícios regularmente</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q3" value="q3b" class="accent-emerald-500"> Comer fast food todos os dias</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q3" value="q3c" class="accent-emerald-500"> Beber refrigerante frequentemente</label>
-                </div>
-                <div class="text-center">
-                    <button onclick="avaliarQuiz()" class="bg-emerald-600 hover:bg-emerald-500 transition px-10 py-4 rounded-2xl font-semibold">Ver resultado</button>
-                    <div id="quiz-result" class="mt-6 text-center text-zinc-100"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer class="py-12 text-center text-zinc-500">
         <p>© 2026 Vida Equilibrada - Construct by Arthur Custodio e Gabriel Victor 3º ano</p>
     </footer>
@@ -325,6 +302,15 @@
                 <div class="text-3xl font-bold text-emerald-400">${score}/3 acertos</div>
                 <p class="mt-3 text-lg text-zinc-300">${messages[score]}</p>
             `;
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const isOpen = !menu.classList.contains('hidden');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('fa-bars', isOpen);
+            icon.classList.toggle('fa-xmark', !isOpen);
         }
 
         // Tailwind script já incluído
