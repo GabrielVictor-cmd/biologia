@@ -11,8 +11,10 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; }
         .site-bg {
-            background: linear-gradient(180deg, rgba(15, 23, 42, 1) 0%, rgba(17, 24, 39, 1) 100%);
-            min-height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         .section-bg {
             background: transparent;
@@ -32,7 +34,7 @@
                 <div class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">🌿</div>
                 <div>
                     <p class="text-base font-semibold">Vida Equilibrada</p>
-                    <p class="text-xs text-zinc-400">Quiz e navegação</p>
+                    <p class="text-xs text-zinc-400">Quiz</p>
                 </div>
             </div>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-100">
@@ -62,12 +64,16 @@
             </div>
         </div>
     </nav>
-
+    
     <section class="py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold">Quiz sobre obesidade</h2>
                 <p class="text-zinc-300 max-w-2xl mx-auto mt-4">Perguntas atualizadas para reforçar o aprendizado e a prevenção.</p>
+                <a href="index.html#inicio" 
+                       class="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 transition px-8 py-4 rounded-2xl text-lg font-semibold">
+                        <i class="ml-3 fas fa-arrow-left"> </i> Voltar 
+                </a>
             </div>
             <div class="bg-zinc-900 rounded-3xl p-10 grid gap-8">
                 <div>
@@ -173,6 +179,19 @@
             icon.classList.toggle('fa-bars', isOpen);
             icon.classList.toggle('fa-xmark', !isOpen);
         }
+
+        function closeMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.add('hidden');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
     </script>
 </body>
 </html>

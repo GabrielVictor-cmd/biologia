@@ -313,6 +313,19 @@
             icon.classList.toggle('fa-xmark', !isOpen);
         }
 
+        function closeMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.add('hidden');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
         // Tailwind script já incluído
     </script>
 </body>
