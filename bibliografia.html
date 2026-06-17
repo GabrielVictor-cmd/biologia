@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida Equilibrada | Obesidade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .site-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .section-bg {
+            background: transparent;
+        }
+        .card-hover:hover {
+            transform: translateY(-12px);
+            transition: all 0.4s ease;
+        }
+        .green-accent { color: #10b981; }
+    </style>
+</head>
+<body class="site-bg text-zinc-100 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="backdrop-blur-2xl fixed w-full z-50 text-white shadow-2xl border-b border-zinc-800/40 bg-zinc-950/70">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">🌿</div>
+                <div>
+                    <p class="text-base font-semibold">Vida Equilibrada</p>
+                    <p class="text-xs text-zinc-400">Obesidade e bem-estar</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-100">
+               <a href="index.html#inicio" class="hover:text-emerald-300 transition">Início</a>
+                <a href="index.html#o-que-e" class="hover:text-emerald-300 transition">O que é</a>
+                <a href="index.html#causas" class="hover:text-emerald-300 transition">Causas</a>
+                <a href="index.html#prevencao" class="hover:text-emerald-300 transition">Prevenção</a>
+                <a href="index.html#alimentacao" class="hover:text-emerald-300 transition">Alimentação</a>
+                <a href="index.html#treino" class="hover:text-emerald-300 transition">Treinos</a>
+                <a href="index.html#IMC" class="hover:text-emerald-300 transition">IMC</a>
+                <a href="obesitube.html" class="hover:text-emerald-300 transition">Videos</a>
+                <a href="quiz.html" class="hover:text-emerald-300 transition">Quiz</a>
+                <a href="bibliografia.html" class="hover:text-emerald-300 transition">Bibliografia</a>
+            </div>
+            <button onclick="toggleMenu()" class="md:hidden p-3 rounded-2xl bg-zinc-900/95 border border-zinc-800 shadow-lg text-emerald-300 hover:bg-zinc-800 transition focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                <i id="menu-icon" class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950/95 backdrop-blur-xl shadow-2xl rounded-b-3xl">
+            <div class="px-6 py-5 flex flex-col gap-3 text-sm font-medium text-zinc-100">
+                <a href="index.html#inicio" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Início</a>
+                <a href="index.html#o-que-e" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">O que é</a>
+                <a href="index.html#causas" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Causas</a>
+                <a href="index.html#prevencao" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Prevenção</a>
+                <a href="index.html#alimentacao" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Alimentação</a>
+                <a href="index.html#treino" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Treinos</a>
+                <a href="index.html#IMC" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">IMC</a>
+                <a href="obesitube.html" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Videos</a>
+                <a href="quiz.html" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Quiz</a>
+                <a href="bibliografia.html" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Bibliografia</a>
+            </div>
+        </div>
+    </nav>
+
+<section class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold mb-2 text-emerald-400">Referências bibliográficas</h1>
+                
+            </div>
+            <div class="bg-zinc-900 rounded-3xl p-10 grid gap-8">
+                <p class="text-lg text-zinc-300 leading-relaxed mb-4">
+                    1. Falando de Obesidade. Disponível em: <a href="https://falandodeobesidade.com" class="text-emerald-400 hover:underline">https://falandodeobesidade.com</a>. Acesso em: 17 de junho de 2026.
+                </p>
+                <br>
+                <p class="text-lg text-zinc-300 leading-relaxed mb-4">
+                    2. Alimentação saudável, OPAS. Disponível em: <a href="https://www.paho.org/pt/topicos/alimentacao-saudavel" class="text-emerald-400 hover:underline">https://www.paho.org/pt/topicos/alimentacao-saudavel</a>. Acesso em: 17 de junho de 2026.
+                </p>
+                <br>
+                <p class="text-lg text-zinc-300 leading-relaxed mb-4">
+                    3. Saber da saúde. Disponível em: <a href="https://leveavidamaisleve.com.br" class="text-emerald-400 hover:underline">https://leveavidamaisleve.com.br</a>. Acesso em: 17 de junho de 2026.
+                </p>
+                <br>
+
+                <p class="text-lg text-zinc-300 leading-relaxed mb-4">
+                    Membros do grupo:
+                    <ol>
+                        <li>Kevin dos Santos</li>
+                        <li>Gabriel Victor</li>
+                        <li>Arthur Custódio</li>
+                        <li>Vitor Emanuel</li>
+                        <li>Leandro Henrique</li>
+                        <li>Isaque Souto</li>
+                        <li>Gustavo Gomes</li>
+                        <li>Igor Andrade</li>
+                    </ol>
+                </p>
+                <br>
+                <p class="text-lg text-zinc-300 leading-relaxed mb-4">
+                    Esse é o nosso trabalho sobre obesidade apresentado para a professora Daniele Eveling, da matéria de Biologia.
+                    <br>
+                    Agradeços a sua visita!
+                </p>
+
+                <br>
+                <p class="text-lg text-bold green-accent leading-relaxed mb-4"> 
+                    <strong>Este site é protegido por direitos autorais e é destinado apenas para fins educacionais. Qualquer reprodução ou distribuição não autorizada do conteúdo deste site é estritamente proibida. </strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-zinc-500">
+        <p>© 2026 Vida Equilibrada - Construct by Gabriel Victor e Arthur Custodio 3º ano</p>
+    </footer>
+
+    <script>
+
+            function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const isOpen = !menu.classList.contains('hidden');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('fa-bars', isOpen);
+            icon.classList.toggle('fa-xmark', !isOpen);
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.add('hidden');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
+</body>
+</html>
