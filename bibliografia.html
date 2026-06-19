@@ -25,6 +25,42 @@
             transition: all 0.4s ease;
         }
         .green-accent { color: #10b981; }
+        /* Hamburger menu CSS (desktop + mobile) */
+        :root{
+            --hamburger-size:48px;
+            --hamburger-bg: rgba(16,185,129,0.75);
+            --content-bg: rgba(16,185,129,0.97);
+            --main-color:#FEFEFE;
+            --anim-duration:0.4s;
+            --line-height:2px;
+        }
+
+        .outer-menu{ position: relative; display:inline-block; }
+        .outer-menu .checkbox-toggle{ position: absolute; width: var(--hamburger-size); height: var(--hamburger-size); opacity:0; cursor:pointer; z-index:30; right:0; }
+        .outer-menu .hamburger{ display:flex; align-items:center; justify-content:center; width:var(--hamburger-size); height:var(--hamburger-size); background:var(--hamburger-bg); border-radius:0.12em; padding:.25rem; cursor:pointer; z-index:20; }
+        .outer-menu .hamburger>div{ position:relative; width:60%; height:var(--line-height); background:var(--main-color); transition: all var(--anim-duration) ease; }
+        .outer-menu .hamburger>div:before,
+        .outer-menu .hamburger>div:after{ content:''; position:absolute; left:0; width:100%; height:var(--line-height); background:inherit; transition: all var(--anim-duration) ease; }
+        .outer-menu .hamburger>div:before{ top:-10px; }
+        .outer-menu .hamburger>div:after{ top:10px; }
+
+        .outer-menu .checkbox-toggle:checked + .hamburger > div{ transform: rotate(135deg); }
+        .outer-menu .checkbox-toggle:checked + .hamburger > div:before,
+        .outer-menu .checkbox-toggle:checked + .hamburger > div:after{ top:0; transform: rotate(90deg); }
+
+        .outer-menu .menu{ position: fixed; top:0; right:0; width:100vw; height:100vh; pointer-events:none; visibility:hidden; display:flex; align-items:center; justify-content:center; z-index:15; }
+        .outer-menu .menu>div{ background:var(--content-bg); width:200vw; height:200vw; border-radius:50%; transform:scale(0); transition: transform var(--anim-duration) ease; display:flex; align-items:center; justify-content:center; }
+        .outer-menu .checkbox-toggle:checked ~ .menu{ pointer-events:auto; visibility:visible; }
+        .outer-menu .checkbox-toggle:checked ~ .menu>div{ transform:scale(1); transition-duration:0.75s; }
+        .outer-menu .menu ul{ list-style:none; padding:0 1rem; margin:0; text-align:center; }
+        .outer-menu .menu li{ margin:1rem 0; font-size:1.25rem; }
+        .outer-menu .menu a{ color:var(--main-color); text-decoration:none; }
+
+        /* hamburger icons */
+        .outer-menu .hamburger i{ color:var(--main-color); font-size:1.15rem; line-height:1; }
+        .outer-menu .hamburger .close-icon{ display:none; }
+        .outer-menu .checkbox-toggle:checked + .hamburger .open-icon{ display:none; }
+        .outer-menu .checkbox-toggle:checked + .hamburger .close-icon{ display:block; }
     </style>
 </head>
 <body class="site-bg text-zinc-100 overflow-x-hidden">
@@ -39,34 +75,30 @@
                     <p class="text-xs text-zinc-400">Obesidade e bem-estar</p>
                 </div>
             </div>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-100">
-               <a href="index.html#inicio" class="hover:text-emerald-300 transition">Início</a>
-                <a href="index.html#o-que-e" class="hover:text-emerald-300 transition">O que é</a>
-                <a href="index.html#causas" class="hover:text-emerald-300 transition">Causas</a>
-                <a href="index.html#prevencao" class="hover:text-emerald-300 transition">Prevenção</a>
-                <a href="index.html#alimentacao" class="hover:text-emerald-300 transition">Alimentação</a>
-                <a href="index.html#treino" class="hover:text-emerald-300 transition">Treinos</a>
-                <a href="index.html#IMC" class="hover:text-emerald-300 transition">IMC</a>
-                <a href="obesitube.html" class="hover:text-emerald-300 transition">Videos</a>
-                <a href="quiz.html" class="hover:text-emerald-300 transition">Quiz</a>
-                <a href="bibliografia.html" class="hover:text-emerald-300 transition">Bibliografia</a>
-            </div>
-            <button onclick="toggleMenu()" class="md:hidden p-3 rounded-2xl bg-zinc-900/95 border border-zinc-800 shadow-lg text-emerald-300 hover:bg-zinc-800 transition focus:outline-none focus:ring-2 focus:ring-emerald-400">
-                <i id="menu-icon" class="fas fa-bars"></i>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950/95 backdrop-blur-xl shadow-2xl rounded-b-3xl">
-            <div class="px-6 py-5 flex flex-col gap-3 text-sm font-medium text-zinc-100">
-                <a href="index.html#inicio" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Início</a>
-                <a href="index.html#o-que-e" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">O que é</a>
-                <a href="index.html#causas" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Causas</a>
-                <a href="index.html#prevencao" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Prevenção</a>
-                <a href="index.html#alimentacao" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Alimentação</a>
-                <a href="index.html#treino" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Treinos</a>
-                <a href="index.html#IMC" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">IMC</a>
-                <a href="obesitube.html" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Videos</a>
-                <a href="quiz.html" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Quiz</a>
-                <a href="bibliografia.html" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Bibliografia</a>
+            <div class="outer-menu">
+                <input id="hamburger-toggle" class="checkbox-toggle" type="checkbox" />
+                <label for="hamburger-toggle" class="hamburger" aria-label="Abrir menu">
+                    <i class="fas fa-bars open-icon"></i>
+                    <i class="fas fa-xmark close-icon"></i>
+                </label>
+                <nav class="menu" aria-label="Menu principal">
+                    <div>
+                        <div>
+                            <ul>
+                                <li><a href="index.html#inicio">Início</a></li>
+                                <li><a href="index.html#o-que-e">O que é</a></li>
+                                <li><a href="index.html#causas">Causas</a></li>
+                                <li><a href="index.html#prevencao">Prevenção</a></li>
+                                <li><a href="index.html#alimentacao">Alimentação</a></li>
+                                <li><a href="index.html#treino">Treinos</a></li>
+                                <li><a href="index.html#IMC">IMC</a></li>
+                                <li><a href="obesitube.html">Videos</a></li>
+                                <li><a href="quiz.html">Quiz</a></li>
+                                <li><a href="bibliografia.html">Bibliografia</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
     </nav>
@@ -125,27 +157,13 @@
 
     <script>
 
-            function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            const isOpen = !menu.classList.contains('hidden');
-            menu.classList.toggle('hidden');
-            icon.classList.toggle('fa-bars', isOpen);
-            icon.classList.toggle('fa-xmark', !isOpen);
-        }
-
-        function closeMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            menu.classList.add('hidden');
-            icon.classList.add('fa-bars');
-            icon.classList.remove('fa-xmark');
-        }
-
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
+            // Close checkbox menu when a link is clicked
+            document.querySelectorAll('.outer-menu .menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    const cb = document.getElementById('hamburger-toggle');
+                    if(cb) cb.checked = false;
+                });
+            });
     </script>
 </body>
 </html>
