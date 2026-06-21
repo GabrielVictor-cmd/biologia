@@ -1,239 +1,732 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vida Equilibrada | Quiz</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; }
-        .site-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://picsum.photos/id/1015/2000/1200');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .section-bg {
-            background: transparent;
-        }
-        .card-hover:hover {
-            transform: translateY(-12px);
-            transition: all 0.4s ease;
-        }
-        .green-accent { color: #10b981; }
-        /* Hamburger menu CSS (desktop + mobile) */
-        :root{
-            --hamburger-size:48px;
-            --hamburger-bg: rgba(16,185,129,0.75);
-            --content-bg: rgba(16,185,129,0.97);
-            --main-color:#FEFEFE;
-            --anim-duration:0.4s;
-            --line-height:2px;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-        .outer-menu{ position: relative; display:inline-block; }
-        .outer-menu .checkbox-toggle{ position: absolute; width: var(--hamburger-size); height: var(--hamburger-size); opacity:0; cursor:pointer; z-index:30; right:0; }
-        .outer-menu .hamburger{ display:flex; align-items:center; justify-content:center; width:var(--hamburger-size); height:var(--hamburger-size); background:var(--hamburger-bg); border-radius:0.12em; padding:.25rem; cursor:pointer; z-index:20; }
-        .outer-menu .hamburger>div{ position:relative; width:60%; height:var(--line-height); background:var(--main-color); transition: all var(--anim-duration) ease; }
-        .outer-menu .hamburger>div:before,
-        .outer-menu .hamburger>div:after{ content:''; position:absolute; left:0; width:100%; height:var(--line-height); background:inherit; transition: all var(--anim-duration) ease; }
-        .outer-menu .hamburger>div:before{ top:-10px; }
-        .outer-menu .hamburger>div:after{ top:10px; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        .outer-menu .checkbox-toggle:checked + .hamburger > div{ transform: rotate(135deg); }
-        .outer-menu .checkbox-toggle:checked + .hamburger > div:before,
-        .outer-menu .checkbox-toggle:checked + .hamburger > div:after{ top:0; transform: rotate(90deg); }
+      body {
+        font-family: "Inter", sans-serif;
+      }
 
-        .outer-menu .menu{ position: fixed; top:0; right:0; width:100vw; height:100vh; pointer-events:none; visibility:hidden; display:flex; align-items:center; justify-content:center; z-index:15; }
-        .outer-menu .menu>div{ background:var(--content-bg); width:200vw; height:200vw; border-radius:50%; transform:scale(0); transition: transform var(--anim-duration) ease; display:flex; align-items:center; justify-content:center; }
-        .outer-menu .checkbox-toggle:checked ~ .menu{ pointer-events:auto; visibility:visible; }
-        .outer-menu .checkbox-toggle:checked ~ .menu>div{ transform:scale(1); transition-duration:0.75s; }
-        .outer-menu .menu ul{ list-style:none; padding:0 1rem; margin:0; text-align:center; }
-        .outer-menu .menu li{ margin:1rem 0; font-size:1.25rem; }
-        .outer-menu .menu a{ color:var(--main-color); text-decoration:none; }
+      .site-bg {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url("https://picsum.photos/id/1015/2000/1200");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
 
-        /* hamburger icons */
-        .outer-menu .hamburger i{ color:var(--main-color); font-size:1.15rem; line-height:1; }
-        .outer-menu .hamburger .close-icon{ display:none; }
-        .outer-menu .checkbox-toggle:checked + .hamburger .open-icon{ display:none; }
-        .outer-menu .checkbox-toggle:checked + .hamburger .close-icon{ display:block; }
+      .section-bg {
+        background: transparent;
+      }
 
+      .card-hover:hover {
+        transform: translateY(-12px);
+        transition: all 0.4s ease;
+      }
+
+      .green-accent {
+        color: #10b981;
+      }
+
+      /* Hamburger menu CSS (desktop + mobile) */
+      :root {
+        --hamburger-size: 48px;
+        --hamburger-bg: rgba(16, 185, 129, 0.75);
+        --content-bg: rgba(16, 185, 129, 0.97);
+        --main-color: #fefefe;
+        --anim-duration: 0.4s;
+        --line-height: 2px;
+      }
+
+      .outer-menu {
+        position: relative;
+        display: inline-block;
+      }
+
+      .outer-menu .checkbox-toggle {
+        position: absolute;
+        width: var(--hamburger-size);
+        height: var(--hamburger-size);
+        opacity: 0;
+        cursor: pointer;
+        z-index: 30;
+        right: 0;
+      }
+
+      .outer-menu .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--hamburger-size);
+        height: var(--hamburger-size);
+        background: var(--hamburger-bg);
+        border-radius: 0.12em;
+        padding: 0.25rem;
+        cursor: pointer;
+        z-index: 20;
+      }
+
+      .outer-menu .hamburger > div {
+        position: relative;
+        width: 60%;
+        height: var(--line-height);
+        background: var(--main-color);
+        transition: all var(--anim-duration) ease;
+      }
+
+      .outer-menu .hamburger > div:before,
+      .outer-menu .hamburger > div:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: var(--line-height);
+        background: inherit;
+        transition: all var(--anim-duration) ease;
+      }
+
+      .outer-menu .hamburger > div:before {
+        top: -10px;
+      }
+
+      .outer-menu .hamburger > div:after {
+        top: 10px;
+      }
+
+      .outer-menu .checkbox-toggle:checked + .hamburger > div {
+        transform: rotate(135deg);
+      }
+
+      .outer-menu .checkbox-toggle:checked + .hamburger > div:before,
+      .outer-menu .checkbox-toggle:checked + .hamburger > div:after {
+        top: 0;
+        transform: rotate(90deg);
+      }
+
+      .outer-menu .menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 15;
+      }
+
+      .outer-menu .menu > div {
+        background: var(--content-bg);
+        width: 200vw;
+        height: 200vw;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: transform var(--anim-duration) ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .outer-menu .checkbox-toggle:checked ~ .menu {
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .outer-menu .checkbox-toggle:checked ~ .menu > div {
+        transform: scale(1);
+        transition-duration: 0.75s;
+      }
+
+      .outer-menu .menu ul {
+        list-style: none;
+        padding: 0 1rem;
+        margin: 0;
+        text-align: center;
+      }
+
+      .outer-menu .menu li {
+        margin: 1rem 0;
+        font-size: 1.25rem;
+      }
+
+      .outer-menu .menu a {
+        color: var(--main-color);
+        text-decoration: none;
+      }
+
+      /* hamburger icons */
+      .outer-menu .hamburger i {
+        color: var(--main-color);
+        font-size: 1.15rem;
+        line-height: 1;
+      }
+
+      .outer-menu .hamburger .close-icon {
+        display: none;
+      }
+
+      .outer-menu .checkbox-toggle:checked + .hamburger .open-icon {
+        display: none;
+      }
+
+      .outer-menu .checkbox-toggle:checked + .hamburger .close-icon {
+        display: block;
+      }
+
+      .quiz-option {
+        padding: 12px 16px;
+        border-radius: 16px;
+        transition: all 0.25s ease;
+        cursor: pointer;
+      }
+
+      .quiz-option:hover {
+        background: rgba(16, 185, 129, 0.12);
+        transform: translateX(6px);
+      }
     </style>
-</head>
-<body class="site-bg text-zinc-100 overflow-x-hidden">
+  </head>
 
-    <nav class="backdrop-blur-2xl fixed w-full z-50 text-white shadow-2xl border-b border-zinc-800/40 bg-zinc-950/70">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <div class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">🌿</div>
-                <div>
-                    <p class="text-base font-semibold">Vida Equilibrada</p>
-                    <p class="text-xs text-zinc-400">Quiz</p>
-                </div>
-            </div>
-            <div class="outer-menu">
-                <input id="hamburger-toggle" class="checkbox-toggle" type="checkbox" />
-                <label for="hamburger-toggle" class="hamburger" aria-label="Abrir menu">
-                    <i class="fas fa-bars open-icon"></i>
-                    <i class="fas fa-xmark close-icon"></i>
-                </label>
-                <nav class="menu" aria-label="Menu principal">
-                    <div>
-                        <div>
-                            <ul>
-                                <li><a href="index.html#inicio">Início</a></li>
-                                <li><a href="index.html#o-que-e">O que é</a></li>
-                                <li><a href="index.html#causas">Causas</a></li>
-                                <li><a href="index.html#prevencao">Prevenção</a></li>
-                                <li><a href="index.html#alimentacao">Alimentação</a></li>
-                                <li><a href="index.html#treino">Treinos</a></li>
-                                <li><a href="index.html#IMC">IMC</a></li>
-                                <li><a href="obesitube.html">Videos</a></li>
-                                <li><a href="quiz.html">Quiz</a></li>
-                                <li><a href="bibliografia.html">Bibliografia</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+  <body class="site-bg text-zinc-100 overflow-x-hidden">
+    <nav
+      class="backdrop-blur-2xl fixed w-full z-50 text-white shadow-2xl border-b border-zinc-800/40 bg-zinc-950/70"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4"
+      >
+        <div class="flex items-center gap-3">
+          <div
+            class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg"
+          >
+            🌿
+          </div>
+          <div>
+            <p class="text-base font-semibold">Vida Equilibrada</p>
+            <p class="text-xs text-zinc-400">Quiz</p>
+          </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950/95 backdrop-blur-xl shadow-2xl rounded-b-3xl">
-            <div class="px-6 py-5 flex flex-col gap-3 text-sm font-medium text-zinc-100">
-                <a href="index.html#inicio" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Início</a>
-                <a href="index.html#o-que-e" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">O que é</a>
-                <a href="index.html#causas" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Causas</a>
-                <a href="index.html#prevencao" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Prevenção</a>
-                <a href="index.html#alimentacao" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Alimentação</a>
-                <a href="index.html#treino" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Treinos</a>
-                <a href="index.html#IMC" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">IMC</a>
-                <a href="obesitube.html" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Videos</a>
-                <a href="quiz.html" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Quiz</a>
-                <a href="bibliografia.html" class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition">Bibliografia</a>
-                
+        <div class="outer-menu">
+          <input
+            id="hamburger-toggle"
+            class="checkbox-toggle"
+            type="checkbox"
+          />
+          <label
+            for="hamburger-toggle"
+            class="hamburger"
+            aria-label="Abrir menu"
+          >
+            <i class="fas fa-bars open-icon"></i>
+            <i class="fas fa-xmark close-icon"></i>
+          </label>
+          <nav class="menu" aria-label="Menu principal">
+            <div>
+              <div>
+                <ul>
+                  <li><a href="index.html#inicio">Início</a></li>
+                  <li><a href="index.html#o-que-e">O que é</a></li>
+                  <li><a href="index.html#causas">Causas</a></li>
+                  <li><a href="index.html#prevencao">Prevenção</a></li>
+                  <li><a href="index.html#alimentacao">Alimentação</a></li>
+                  <li><a href="index.html#treino">Treinos</a></li>
+                  <li><a href="index.html#IMC">IMC</a></li>
+                  <li><a href="obesitube.html">Videos</a></li>
+                  <li><a href="quiz.html">Quiz</a></li>
+                  <li><a href="bibliografia.html">Bibliografia</a></li>
+                </ul>
+              </div>
             </div>
+          </nav>
         </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-zinc-800 bg-zinc-950/95 backdrop-blur-xl shadow-2xl rounded-b-3xl"
+      >
+        <div
+          class="px-6 py-5 flex flex-col gap-3 text-sm font-medium text-zinc-100"
+        >
+          <a
+            href="index.html#inicio"
+            class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition"
+            >Início</a
+          >
+          <a
+            href="index.html#o-que-e"
+            class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition"
+            >O que é</a
+          >
+          <a
+            href="index.html#causas"
+            class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition"
+            >Causas</a
+          >
+          <a
+            href="index.html#prevencao"
+            class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition"
+            >Prevenção</a
+          >
+          <a
+            href="index.html#alimentacao"
+            class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition"
+            >Alimentação</a
+          >
+          <a
+            href="index.html#treino"
+            class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition"
+            >Treinos</a
+          >
+          <a
+            href="index.html#IMC"
+            class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition"
+            >IMC</a
+          >
+          <a
+            href="obesitube.html"
+            class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition"
+            >Videos</a
+          >
+          <a
+            href="quiz.html"
+            class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition"
+            >Quiz</a
+          >
+          <a
+            href="bibliografia.html"
+            class="block rounded-2xl px-4 py-3 hover:bg-zinc-900 transition"
+            >Bibliografia</a
+          >
+        </div>
+      </div>
     </nav>
-    
+
     <section class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold mb-2 text-emerald-400 text-center">Quiz sobre obesidade</h1>
-                <p class="text-xl text-zinc-300 mb-10 text-center">Perguntas atualizadas para reforçar o aprendizado e a prevenção.</p>
-                <div class="flex justify-center mt-6">
-                    <a href="index.html#inicio"
-                        class="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 transition px-8 py-4 rounded-2xl text-lg font-semibold gap-3 shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-1">
-                        <i class="fas fa-arrow-left"></i>
-                        Voltar
-                    </a>
-                </div>
-            </div>
-            <div class="bg-zinc-800 rounded-3xl p-10 grid gap-8">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">1. O que caracteriza a obesidade?</h3>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q1" value="q1a" class="accent-emerald-500"> Ter hipertensão arterial</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q1" value="q1b" class="accent-emerald-500"> Acúmulo excessivo de gordura corporal</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q1" value="q1c" class="accent-emerald-500"> Sensação de cansaço constante</label>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">2. Como se calcula o IMC?</h3>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q2" value="q2a" class="accent-emerald-500"> peso / altura²</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q2" value="q2b" class="accent-emerald-500"> altura / peso²</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q2" value="q2c" class="accent-emerald-500"> peso + altura</label>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">3. Qual hábito ajuda a prevenir a obesidade?</h3>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q3" value="q3a" class="accent-emerald-500"> Praticar exercícios regularmente</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q3" value="q3b" class="accent-emerald-500"> Comer fast food todos os dias</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q3" value="q3c" class="accent-emerald-500"> Beber refrigerante frequentemente</label>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">4. Qual alimento é mais saudável para reduzir calorias vazias?</h3>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q4" value="q4a" class="accent-emerald-500"> Salgadinhos industrializados</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q4" value="q4b" class="accent-emerald-500"> Frutas, verduras e grãos integrais</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q4" value="q4c" class="accent-emerald-500"> Refrigerante diet</label>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">5. Qual é um sinal comum de obesidade infantil?</h3>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q5" value="q5a" class="accent-emerald-500"> Crescimento rápido de altura acima do peso</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q5" value="q5b" class="accent-emerald-500"> Ganho rápido de peso e cansaço frequente</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q5" value="q5c" class="accent-emerald-500"> Dormir mais de 10 horas por noite</label>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">6. Qual exercício é recomendado para queima calórica e baixo impacto?</h3>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q6" value="q6a" class="accent-emerald-500"> Correr em superfícies duras</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q6" value="q6b" class="accent-emerald-500"> Natação ou hidroginástica</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q6" value="q6c" class="accent-emerald-500"> Levantamento de peso sem orientação</label>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">7. Qual afirmação é verdadeira sobre o IMC?</h3>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q7" value="q7a" class="accent-emerald-500"> O IMC mede diretamente a gordura corporal.</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q7" value="q7b" class="accent-emerald-500"> O IMC relaciona peso e altura, mas não mede gordura diretamente.</label>
-                    <label class="flex items-center gap-3 text-zinc-300"><input type="radio" name="q7" value="q7c" class="accent-emerald-500"> O IMC deve ser usado sozinho para diagnosticar todas as doenças.</label>
-                </div>
-                <div class="text-center">
-                    <button onclick="avaliarQuiz()" class="bg-emerald-600 hover:bg-emerald-500 transition px-10 py-4 rounded-2xl font-semibold">Ver resultado</button>
-                    <div id="quiz-result" class="mt-6 text-center text-zinc-100"></div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold mb-2 text-emerald-400 text-center">
+            Quiz sobre obesidade
+          </h1>
+          <p class="text-xl text-zinc-300 mb-10 text-center">
+            Perguntas atualizadas para reforçar o aprendizado e a prevenção.
+          </p>
+          <div class="flex justify-center mt-6">
+            <a
+              href="index.html#inicio"
+              class="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 transition px-8 py-4 rounded-2xl text-lg font-semibold gap-3 shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-1"
+            >
+              <i class="fas fa-arrow-left"></i>
+              Voltar
+            </a>
+          </div>
         </div>
+
+        <div
+          class="bg-zinc-800/90 backdrop-blur-md rounded-3xl p-10 grid gap-8 border border-zinc-700 shadow-2xl"
+        >
+          <div class="mb-8">
+            <div class="h-3 bg-zinc-700 rounded-full overflow-hidden">
+              <div
+                id="progress-bar"
+                class="h-full bg-emerald-500 w-0 transition-all duration-300"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="bg-zinc-900/70 border border-zinc-700 rounded-3xl p-8 hover:border-emerald-500 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10"
+          >
+            <h3 class="text-2xl font-semibold mb-4">
+              1. O que caracteriza a obesidade?
+            </h3>
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q1"
+                value="q1a"
+                class="accent-emerald-500"
+              />
+              Ter hipertensão arterial</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q1"
+                value="q1b"
+                class="accent-emerald-500"
+              />
+              Acúmulo excessivo de gordura corporal</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q1"
+                value="q1c"
+                class="accent-emerald-500"
+              />
+              Sensação de cansaço constante</label
+            >
+          </div>
+
+          <div
+            class="bg-zinc-900/70 border border-zinc-700 rounded-3xl p-8 hover:border-emerald-500 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10"
+          >
+            <h3 class="text-2xl font-semibold mb-4">
+              2. Como se calcula o IMC?
+            </h3>
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q2"
+                value="q2a"
+                class="accent-emerald-500"
+              />
+              peso / altura²</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q2"
+                value="q2b"
+                class="accent-emerald-500"
+              />
+              altura / peso²</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q2"
+                value="q2c"
+                class="accent-emerald-500"
+              />
+              peso + altura</label
+            >
+          </div>
+
+          <div
+            class="bg-zinc-900/70 border border-zinc-700 rounded-3xl p-8 hover:border-emerald-500 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10"
+          >
+            <h3 class="text-2xl font-semibold mb-4">
+              3. Qual hábito ajuda a prevenir a obesidade?
+            </h3>
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q3"
+                value="q3a"
+                class="accent-emerald-500"
+              />
+              Praticar exercícios regularmente</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q3"
+                value="q3b"
+                class="accent-emerald-500"
+              />
+              Comer fast food todos os dias</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q3"
+                value="q3c"
+                class="accent-emerald-500"
+              />
+              Beber refrigerante frequentemente</label
+            >
+          </div>
+
+          <div
+            class="bg-zinc-900/70 border border-zinc-700 rounded-3xl p-8 hover:border-emerald-500 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10"
+          >
+            <h3 class="text-2xl font-semibold mb-4">
+              4. Qual alimento é mais saudável para reduzir calorias vazias?
+            </h3>
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q4"
+                value="q4a"
+                class="accent-emerald-500"
+              />
+              Salgadinhos industrializados</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q4"
+                value="q4b"
+                class="accent-emerald-500"
+              />
+              Frutas, verduras e grãos integrais</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q4"
+                value="q4c"
+                class="accent-emerald-500"
+              />
+              Refrigerante diet</label
+            >
+          </div>
+
+          <div
+            class="bg-zinc-900/70 border border-zinc-700 rounded-3xl p-8 hover:border-emerald-500 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10"
+          >
+            <h3 class="text-2xl font-semibold mb-4">
+              5. Qual é um sinal comum de obesidade infantil?
+            </h3>
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q5"
+                value="q5a"
+                class="accent-emerald-500"
+              />
+              Crescimento rápido de altura acima do peso</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q5"
+                value="q5b"
+                class="accent-emerald-500"
+              />
+              Ganho rápido de peso e cansaço frequente</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q5"
+                value="q5c"
+                class="accent-emerald-500"
+              />
+              Dormir mais de 10 horas por noite</label
+            >
+          </div>
+
+          <div
+            class="bg-zinc-900/70 border border-zinc-700 rounded-3xl p-8 hover:border-emerald-500 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10"
+          >
+            <h3 class="text-2xl font-semibold mb-4">
+              6. Qual exercício é recomendado para queima calórica e baixo
+              impacto?
+            </h3>
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q6"
+                value="q6a"
+                class="accent-emerald-500"
+              />
+              Correr em superfícies duras</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q6"
+                value="q6b"
+                class="accent-emerald-500"
+              />
+              Natação ou hidroginástica</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q6"
+                value="q6c"
+                class="accent-emerald-500"
+              />
+              Levantamento de peso sem orientação</label
+            >
+          </div>
+
+          <div
+            class="bg-zinc-900/70 border border-zinc-700 rounded-3xl p-8 hover:border-emerald-500 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10"
+          >
+            <h3 class="text-2xl font-semibold mb-4">
+              7. Qual afirmação é verdadeira sobre o IMC?
+            </h3>
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q7"
+                value="q7a"
+                class="accent-emerald-500"
+              />
+              O IMC mede diretamente a gordura corporal.</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q7"
+                value="q7b"
+                class="accent-emerald-500"
+              />
+              O IMC relaciona peso e altura, mas não mede gordura
+              diretamente.</label
+            >
+            <label class="quiz-option flex items-center gap-3 text-zinc-300"
+              ><input
+                type="radio"
+                name="q7"
+                value="q7c"
+                class="accent-emerald-500"
+              />
+              O IMC deve ser usado sozinho para diagnosticar todas as
+              doenças.</label
+            >
+          </div>
+          <div class="text-center">
+            <button
+              onclick="avaliarQuiz()"
+              class="bg-emerald-600 hover:bg-emerald-500 transition-all duration-300 px-12 py-5 rounded-2xl text-lg font-bold shadow-lg hover:shadow-emerald-500/40 hover:-translate-y-1"
+            >
+              Ver resultado
+            </button>
+            <div id="quiz-result" class="mt-6 text-center text-zinc-100"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer class="py-12 text-center text-zinc-500">
-        <p>© 2026 Vida Equilibrada - Construct by Gabriel Victor e Arthur Custodio 3º ano</p>
+      <p>
+        © 2026 Vida Equilibrada - Construct by Gabriel Victor e Arthur Custodio
+        3º ano
+      </p>
     </footer>
 
     <script>
-        function avaliarQuiz() {
-            const q1 = document.querySelector('input[name="q1"]:checked');
-            const q2 = document.querySelector('input[name="q2"]:checked');
-            const q3 = document.querySelector('input[name="q3"]:checked');
-            const q4 = document.querySelector('input[name="q4"]:checked');
-            const q5 = document.querySelector('input[name="q5"]:checked');
-            const q6 = document.querySelector('input[name="q6"]:checked');
-            const q7 = document.querySelector('input[name="q7"]:checked');
+      const radios = document.querySelectorAll('input[type="radio"]');
+      radios.forEach((radio) => {
+        radio.addEventListener("change", () => {
+          const respondidas = document.querySelectorAll(
+            'input[type="radio"]:checked',
+          ).length;
+          const porcentagem = (respondidas / 7) * 100;
 
-            if (!q1 || !q2 || !q3 || !q4 || !q5 || !q6 || !q7) {
-                alert("Por favor, responda todas as perguntas do quiz.");
-                return;
-            }
+          document.getElementById("progress-bar").style.width =
+            porcentagem + "%";
+        });
+      });
 
-            let score = 0;
-            if (q1.value === 'q1b') score += 1;
-            if (q2.value === 'q2a') score += 1;
-            if (q3.value === 'q3a') score += 1;
-            if (q4.value === 'q4b') score += 1;
-            if (q5.value === 'q5b') score += 1;
-            if (q6.value === 'q6b') score += 1;
-            if (q7.value === 'q7b') score += 1;
+      function avaliarQuiz() {
+        const q1 = document.querySelector('input[name="q1"]:checked');
+        const q2 = document.querySelector('input[name="q2"]:checked');
+        const q3 = document.querySelector('input[name="q3"]:checked');
+        const q4 = document.querySelector('input[name="q4"]:checked');
+        const q5 = document.querySelector('input[name="q5"]:checked');
+        const q6 = document.querySelector('input[name="q6"]:checked');
+        const q7 = document.querySelector('input[name="q7"]:checked');
 
-            const messages = [
-                'Continue estudando! Revise as seções de prevenção e diagnóstico.',
-                'Você está no caminho certo. Leia mais sobre hábitos saudáveis.',
-                'Bom começo! Procure reforçar os pontos restantes.',
-                'Muito bom! Você conhece bem os conceitos importantes.',
-                'Ótimo resultado! Sua compreensão está acima da média.',
-                'Excelente! Você entende muito bem a obesidade e a prevenção.',
-                'Fantástico! Sua consciência sobre saúde está muito boa.',
-                'Perfeito! Você domina os principais conceitos sobre obesidade.'
-            ];
+        if (!q1 || !q2 || !q3 || !q4 || !q5 || !q6 || !q7) {
+            
+            let scoreColor = "text-red-400";
+            let glowColor = "border-red-500";
+            let borderColor = "shadow-red-500/20";
 
-            document.getElementById('quiz-result').innerHTML = `
-                <div class="text-3xl font-bold text-emerald-400">${score}/7 acertos</div>
-                <p class="mt-3 text-lg text-zinc-300">${messages[score]}</p>
-            `;
+            document.getElementById("quiz-result").innerHTML = `
+            <div class="bg-zinc-900 border ${borderColor} rounded-3xl p-8 mt-6 shadow-xl ${glowColor}">
+
+                <p class="text-lg text-zinc-300 ${scoreColor}"> 
+                    Por favor, responda todas as perguntas do quiz! 
+                </p>
+            
+            </div>
+        `;
         }
 
-        // Close checkbox menu when a link is clicked
-        document.querySelectorAll('.outer-menu .menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                const cb = document.getElementById('hamburger-toggle');
-                if(cb) cb.checked = false;
-            });
+        let score = 0;
+        if (q1.value === "q1b") score += 1;
+        if (q2.value === "q2a") score += 1;
+        if (q3.value === "q3a") score += 1;
+        if (q4.value === "q4b") score += 1;
+        if (q5.value === "q5b") score += 1;
+        if (q6.value === "q6b") score += 1;
+        if (q7.value === "q7b") score += 1;
+
+        const messages = [
+          "Continue estudando! Revise as seções de prevenção e diagnóstico.",
+          "Bom começo! Leia mais sobre hábitos saudáveis.",
+          "Você está no caminho certo. Procure reforçar os pontos restantes.",
+          "Muito bom! Você conhece bem os conceitos importantes.",
+          "Excelente! Você entende muito bem a obesidade e a prevenção.",
+          "Ótimo resultado! Sua compreensão está acima da média.",
+          "Fantástico! Sua consciência sobre saúde está muito boa.",
+          "Perfeito! Você domina os principais conceitos sobre obesidade.",
+        ];
+
+        let scoreColor = "";
+        let glowColor = "";
+        let borderColor = "";
+
+        if (score <= 2) {
+          scoreColor = "text-red-400";
+          borderColor = "border-red-500";
+          glowColor = "shadow-red-500/20";
+        } else if (score <= 4) {
+          scoreColor = "text-yellow-400";
+          borderColor = "border-yellow-500";
+          glowColor = "shadow-yellow-500/20";
+        } else if (score <= 6) {
+          scoreColor = "text-emerald-400";
+          borderColor = "border-emerald-500";
+          glowColor = "shadow-emerald-500/20";
+        } else {
+          scoreColor = "text-green-400";
+          borderColor = "border-green-500";
+          glowColor = "shadow-green-500/30";
+        }
+
+        document.getElementById("quiz-result").innerHTML = `
+            <div class="bg-zinc-900 border ${borderColor} rounded-3xl p-8 mt-6 shadow-xl ${glowColor}">
+
+                <div class="text-5xl font-extrabold ${scoreColor}">
+                    ${score}/7
+                </div>
+            
+                <div class="text-xl font-semibold mt-2">
+                    Acertos
+                </div>
+            
+                <p class="mt-4 text-lg text-zinc-300">
+                    ${messages[score]}
+                </p>
+            
+            </div>
+        `;
+      }
+
+      // Close checkbox menu when a link is clicked
+      document.querySelectorAll(".outer-menu .menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          const cb = document.getElementById("hamburger-toggle");
+          if (cb) cb.checked = false;
         });
+      });
     </script>
-</body>
+  </body>
 </html>
