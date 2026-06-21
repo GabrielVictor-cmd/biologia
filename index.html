@@ -1,78 +1,210 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vida Equilibrada | Obesidade</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
         .site-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://picsum.photos/id/1015/2000/1200');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://picsum.photos/id/1015/2000/1200');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
+
         .section-bg {
             background: transparent;
         }
+
         .card-hover:hover {
             transform: translateY(-12px);
             transition: all 0.4s ease;
         }
-        .green-accent { color: #10b981; }
-        /* Hamburger menu custom CSS (adaptado de LESS fornecido) */
-        :root{
-            --hamburger-size:48px;
-            --hamburger-bg: rgba(16,185,129,0.75); /* #10b981 */
-            --content-bg: rgba(16,185,129,0.97);
-            --main-color:#FEFEFE;
-            --anim-duration:0.4s;
-            --line-height:2px;
+
+        .green-accent {
+            color: #10b981;
         }
 
-        .outer-menu{ position: relative; display:inline-block; }
-        .outer-menu .checkbox-toggle{ position: absolute; width: var(--hamburger-size); height: var(--hamburger-size); opacity:0; cursor:pointer; z-index:30; right:0; }
-        .outer-menu .hamburger{ display:flex; align-items:center; justify-content:center; width:var(--hamburger-size); height:var(--hamburger-size); background:var(--hamburger-bg); border-radius:0.12em; padding:.25rem; cursor:pointer; z-index:20; }
-        .outer-menu .hamburger>div{ position:relative; width:60%; height:var(--line-height); background:var(--main-color); transition: all var(--anim-duration) ease; }
+        /* Hamburger menu custom CSS (adaptado de LESS fornecido) */
+        :root {
+            --hamburger-size: 48px;
+            --hamburger-bg: rgba(16, 185, 129, 0.75);
+            /* #10b981 */
+            --content-bg: rgba(16, 185, 129, 0.97);
+            --main-color: #FEFEFE;
+            --anim-duration: 0.4s;
+            --line-height: 2px;
+        }
+
+        .outer-menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .outer-menu .checkbox-toggle {
+            position: absolute;
+            width: var(--hamburger-size);
+            height: var(--hamburger-size);
+            opacity: 0;
+            cursor: pointer;
+            z-index: 30;
+            right: 0;
+        }
+
+        .outer-menu .hamburger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--hamburger-size);
+            height: var(--hamburger-size);
+            background: var(--hamburger-bg);
+            border-radius: 0.12em;
+            padding: .25rem;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .outer-menu .hamburger>div {
+            position: relative;
+            width: 60%;
+            height: var(--line-height);
+            background: var(--main-color);
+            transition: all var(--anim-duration) ease;
+        }
+
         .outer-menu .hamburger>div:before,
-        .outer-menu .hamburger>div:after{ content:''; position:absolute; left:0; width:100%; height:var(--line-height); background:inherit; transition: all var(--anim-duration) ease; }
-        .outer-menu .hamburger>div:before{ top:-10px; }
-        .outer-menu .hamburger>div:after{ top:10px; }
+        .outer-menu .hamburger>div:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: var(--line-height);
+            background: inherit;
+            transition: all var(--anim-duration) ease;
+        }
 
-        .outer-menu .checkbox-toggle:checked + .hamburger > div{ transform: rotate(135deg); }
-        .outer-menu .checkbox-toggle:checked + .hamburger > div:before,
-        .outer-menu .checkbox-toggle:checked + .hamburger > div:after{ top:0; transform: rotate(90deg); }
+        .outer-menu .hamburger>div:before {
+            top: -10px;
+        }
 
-        .outer-menu .menu{ position: fixed; top:0; right:0; width:100vw; height:100vh; pointer-events:none; visibility:hidden; display:flex; align-items:center; justify-content:center; z-index:15; }
-        .outer-menu .menu>div{ background:var(--content-bg); width:200vw; height:200vw; border-radius:50%; transform:scale(0); transition: transform var(--anim-duration) ease; display:flex; align-items:center; justify-content:center; }
-        .outer-menu .checkbox-toggle:checked ~ .menu{ pointer-events:auto; visibility:visible; }
-        .outer-menu .checkbox-toggle:checked ~ .menu>div{ transform:scale(1); transition-duration:0.75s; }
-        .outer-menu .menu ul{ list-style:none; padding:0 1rem; margin:0; text-align:center; }
-        .outer-menu .menu li{ margin:1rem 0; font-size:1.25rem; }
-        .outer-menu .menu a{ color:var(--main-color); text-decoration:none; }
-        .outer-menu .menu a:hover{ color:#dceeff; }
+        .outer-menu .hamburger>div:after {
+            top: 10px;
+        }
+
+        .outer-menu .checkbox-toggle:checked+.hamburger>div {
+            transform: rotate(135deg);
+        }
+
+        .outer-menu .checkbox-toggle:checked+.hamburger>div:before,
+        .outer-menu .checkbox-toggle:checked+.hamburger>div:after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+        .outer-menu .menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 15;
+        }
+
+        .outer-menu .menu>div {
+            background: var(--content-bg);
+            width: 200vw;
+            height: 200vw;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform var(--anim-duration) ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .outer-menu .checkbox-toggle:checked~.menu {
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        .outer-menu .checkbox-toggle:checked~.menu>div {
+            transform: scale(1);
+            transition-duration: 0.75s;
+        }
+
+        .outer-menu .menu ul {
+            list-style: none;
+            padding: 0 1rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        .outer-menu .menu li {
+            margin: 1rem 0;
+            font-size: 1.25rem;
+        }
+
+        .outer-menu .menu a {
+            color: var(--main-color);
+            text-decoration: none;
+        }
+
+        .outer-menu .menu a:hover {
+            color: #dceeff;
+        }
 
         /* hamburger icons */
-        .outer-menu .hamburger i{ color:var(--main-color); font-size:1.15rem; line-height:1; }
-        .outer-menu .hamburger .close-icon{ display:none; }
-        .outer-menu .checkbox-toggle:checked + .hamburger .open-icon{ display:none; }
-        .outer-menu .checkbox-toggle:checked + .hamburger .close-icon{ display:block; }
+        .outer-menu .hamburger i {
+            color: var(--main-color);
+            font-size: 1.15rem;
+            line-height: 1;
+        }
+
+        .outer-menu .hamburger .close-icon {
+            display: none;
+        }
+
+        .outer-menu .checkbox-toggle:checked+.hamburger .open-icon {
+            display: none;
+        }
+
+        .outer-menu .checkbox-toggle:checked+.hamburger .close-icon {
+            display: block;
+        }
 
         /* show on all screen sizes (desktop + mobile) */
     </style>
 </head>
+
 <body class="site-bg text-zinc-100 overflow-x-hidden">
 
     <!-- Navbar -->
     <nav class="backdrop-blur-2xl fixed w-full z-50 text-white shadow-2xl border-b border-zinc-800/40 bg-zinc-950/70">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <div class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">🌿</div>
+                <div
+                    class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
+                    🌿</div>
                 <div>
                     <p class="text-base font-semibold">Vida Equilibrada</p>
                     <p class="text-xs text-zinc-400">Obesidade e bem-estar</p>
@@ -116,8 +248,8 @@
                 <p class="text-xl text-zinc-300 max-w-lg">
                     Uma doença crônica que afeta milhões de brasileiros. Conheça as causas, riscos e como prevenir.
                 </p>
-                <a href="#IMC" 
-                   class="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 transition px-8 py-4 rounded-2xl text-lg font-semibold">
+                <a href="#IMC"
+                    class="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 transition px-8 py-4 rounded-2xl text-lg font-semibold">
                     Calcular meu IMC <i class="ml-3 fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -131,18 +263,25 @@
             <div id="o-que-e">
                 <h2 class="text-4xl font-bold mb-8">O que é obesidade?</h2>
                 <p class="text-lg text-zinc-300 mb-6">
-                    Obesidade é uma doença crônica caracterizada pelo acúmulo excessivo de gordura em diferentes partes do corpo, que pode prejudicar a saúde e aumentar o risco de outras doenças, como diabetes, pressão alta, gordura no fígado ou colesterol alto.
+                    Obesidade é uma doença crônica caracterizada pelo acúmulo excessivo de gordura em diferentes partes
+                    do corpo, que pode prejudicar a saúde e aumentar o risco de outras doenças, como diabetes, pressão
+                    alta, gordura no fígado ou colesterol alto.
                 </p>
                 <h3 class="text-2xl font-semibold mb-4">Causas da obesidade</h3>
                 <p class="text-zinc-400 mb-4">
-                    A obesidade pode ser causada por uma combinação de fatores, incluindo genética, hábitos alimentares inadequados, falta de atividade física e fatores ambientais. O consumo excessivo de alimentos ricos em calorias e o sedentarismo são os principais contribuintes para o desenvolvimento da obesidade.
+                    A obesidade pode ser causada por uma combinação de fatores, incluindo genética, hábitos alimentares
+                    inadequados, falta de atividade física e fatores ambientais. O consumo excessivo de alimentos ricos
+                    em calorias e o sedentarismo são os principais contribuintes para o desenvolvimento da obesidade.
                 </p>
                 <p class="text-zinc-400 mb-4">
-                    Além disso, fatores psicológicos, como estresse e depressão, podem levar ao consumo emocional de alimentos, contribuindo para o ganho de peso.
+                    Além disso, fatores psicológicos, como estresse e depressão, podem levar ao consumo emocional de
+                    alimentos, contribuindo para o ganho de peso.
                 </p>
                 <h3 class="text-2xl font-semibold mb-4">Obesidade infantil</h3>
                 <p class="text-zinc-400">
-                    A obesidade infantil pode causar ganho rápido de peso, cansaço, dificuldade para correr e alterações na postura. O acompanhamento com um pediatra é fundamental, principalmente porque o crescimento da criança pode modificar a avaliação.
+                    A obesidade infantil pode causar ganho rápido de peso, cansaço, dificuldade para correr e alterações
+                    na postura. O acompanhamento com um pediatra é fundamental, principalmente porque o crescimento da
+                    criança pode modificar a avaliação.
                 </p>
             </div>
             <div class="bg-zinc-900 rounded-3xl p-10">
@@ -152,7 +291,8 @@
                     <li class="flex gap-4"><span class="text-emerald-500">•</span> Doenças cardiovasculares</li>
                     <li class="flex gap-4"><span class="text-emerald-500">•</span> Hipertensão</li>
                     <li class="flex gap-4"><span class="text-emerald-500">•</span> Certos tipos de câncer</li>
-                    <li class="flex gap-4"><span class="text-emerald-500">•</span> Impacto na qualidade de vida e na saúde mental</li>
+                    <li class="flex gap-4"><span class="text-emerald-500">•</span> Impacto na qualidade de vida e na
+                        saúde mental</li>
                 </ul>
                 <div class="mt-10">
                     <h3 class="text-2xl font-semibold mb-4">Exames que ajudam no diagnóstico</h3>
@@ -171,7 +311,9 @@
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold mb-8">Importância da conscientização</h2>
             <p class="text-xl text-zinc-300 max-w-3xl mx-auto">
-                A conscientização sobre a obesidade é fundamental para promover hábitos saudáveis e prevenir o desenvolvimento dessa condição. Educar as pessoas sobre os riscos associados à obesidade e as estratégias de prevenção pode ajudar a reduzir a incidência dessa doença e melhorar a saúde pública.
+                A conscientização sobre a obesidade é fundamental para promover hábitos saudáveis e prevenir o
+                desenvolvimento dessa condição. Educar as pessoas sobre os riscos associados à obesidade e as
+                estratégias de prevenção pode ajudar a reduzir a incidência dessa doença e melhorar a saúde pública.
             </p>
         </div>
     </section>
@@ -183,7 +325,8 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
                     <h3 class="text-2xl font-semibold mb-4">Prevenção</h3>
-                    <p class="text-zinc-400 mb-4">A prevenção envolve a adoção de um estilo de vida saudável, incluindo uma dieta equilibrada e a prática regular de exercícios físicos.</p>
+                    <p class="text-zinc-400 mb-4">A prevenção envolve a adoção de um estilo de vida saudável, incluindo
+                        uma dieta equilibrada e a prática regular de exercícios físicos.</p>
                     <ul class="text-left text-zinc-300 space-y-3">
                         <li>Alimentação equilibrada e variada</li>
                         <li>Atividade física constante</li>
@@ -193,8 +336,10 @@
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
                     <h3 class="text-2xl font-semibold mb-4">Tratamento</h3>
-                    <p class="text-zinc-400 mb-4">O tratamento pode incluir mudanças no estilo de vida, terapia comportamental, medicamentos e, em casos mais graves, cirurgia bariátrica.</p>
-                    <p class="text-zinc-400">O acompanhamento médico é essencial para orientar o diagnóstico, confirmar a obesidade com segurança e definir o plano de cuidado adequado.</p>
+                    <p class="text-zinc-400 mb-4">O tratamento pode incluir mudanças no estilo de vida, terapia
+                        comportamental, medicamentos e, em casos mais graves, cirurgia bariátrica.</p>
+                    <p class="text-zinc-400">O acompanhamento médico é essencial para orientar o diagnóstico, confirmar
+                        a obesidade com segurança e definir o plano de cuidado adequado.</p>
                 </div>
             </div>
         </div>
@@ -205,197 +350,205 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold">Alimentação saudável</h2>
-                <p class="text-zinc-300 max-w-2xl mx-auto mt-4">Uma dieta equilibrada e escolhas conscientes ajudam a combater a obesidade e a manter a saúde.</p>
+                <p class="text-zinc-300 max-w-2xl mx-auto mt-4">Uma dieta equilibrada e escolhas conscientes ajudam a
+                    combater a obesidade e a manter a saúde.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
                     <h3 class="text-2xl font-semibold mb-4">Mantenha uma dieta equilibrada</h3>
-                    <p class="text-zinc-400">Inclua frutas, verduras, grãos integrais, proteínas magras e gorduras saudáveis em suas refeições.</p>
+                    <p class="text-zinc-400">Inclua frutas, verduras, grãos integrais, proteínas magras e gorduras
+                        saudáveis em suas refeições.</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
                     <h3 class="text-2xl font-semibold mb-4">Coma de forma consciente</h3>
-                    <p class="text-zinc-400">Evite distrações ao se alimentar e aprecie cada mordida, sem comer até ficar cheio demais.</p>
+                    <p class="text-zinc-400">Evite distrações ao se alimentar e aprecie cada mordida, sem comer até
+                        ficar cheio demais.</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
                     <h3 class="text-2xl font-semibold mb-4">Beba muita água</h3>
-                    <p class="text-zinc-400">A água hidrata, controla a fome e não contém calorias, sendo sempre a melhor escolha.</p>
+                    <p class="text-zinc-400">A água hidrata, controla a fome e não contém calorias, sendo sempre a
+                        melhor escolha.</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
                     <h3 class="text-2xl font-semibold mb-4">Inclua proteínas nas refeições</h3>
-                    <p class="text-zinc-400">Proteínas ajudam a controlar a fome e manter a massa muscular com fontes como peixes, frango, tofu e feijão.</p>
+                    <p class="text-zinc-400">Proteínas ajudam a controlar a fome e manter a massa muscular com fontes
+                        como peixes, frango, tofu e feijão.</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
                     <h3 class="text-2xl font-semibold mb-4">Evite comidas rápidas</h3>
-                    <p class="text-zinc-400">Fast food e alimentos processados são ricos em calorias vazias e geralmente pobres em nutrientes.</p>
+                    <p class="text-zinc-400">Fast food e alimentos processados são ricos em calorias vazias e geralmente
+                        pobres em nutrientes.</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
                     <h3 class="text-2xl font-semibold mb-4">Pequenas refeições regulares</h3>
-                    <p class="text-zinc-400">Comer porções menores ao longo do dia ajuda a controlar a fome e manter o metabolismo ativo.</p>
+                    <p class="text-zinc-400">Comer porções menores ao longo do dia ajuda a controlar a fome e manter o
+                        metabolismo ativo.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Mitos e Verdades + Dicas para Adolescentes -->
-<section id="mitos-verdades" class="py-24">
-    <div class="max-w-7xl mx-auto px-6">
+    <section id="mitos-verdades" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
 
-        <div class="text-center mb-14">
-            <h2 class="text-4xl font-bold mb-4">Mitos e Verdades sobre a Obesidade</h2>
-            <p class="text-zinc-300 max-w-3xl mx-auto">
-                Muitas informações sobre obesidade circulam na internet. Conheça alguns fatos importantes.
-            </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
-
-            <div class="bg-zinc-800 rounded-3xl p-8 border-l-4 border-red-500">
-                <h3 class="text-2xl font-bold text-red-400 mb-3">
-                    ❌ MITO
-                </h3>
-                <p class="text-zinc-300">
-                    "Obesidade acontece apenas porque a pessoa come demais."
-                </p>
-                <p class="mt-4 text-zinc-400">
-                    A obesidade é uma doença multifatorial. Genética, hormônios, ambiente, saúde mental e estilo de vida também influenciam.
+            <div class="text-center mb-14">
+                <h2 class="text-4xl font-bold mb-4">Mitos e Verdades sobre a Obesidade</h2>
+                <p class="text-zinc-300 max-w-3xl mx-auto">
+                    Muitas informações sobre obesidade circulam na internet. Conheça alguns fatos importantes.
                 </p>
             </div>
 
-            <div class="bg-zinc-800 rounded-3xl p-8 border-l-4 border-emerald-500">
-                <h3 class="text-2xl font-bold text-emerald-400 mb-3">
-                    ✅ VERDADE
-                </h3>
-                <p class="text-zinc-300">
-                    Exercícios físicos ajudam a prevenir e controlar a obesidade.
-                </p>
-                <p class="mt-4 text-zinc-400">
-                    A prática regular melhora o metabolismo, a saúde cardiovascular e a qualidade de vida.
-                </p>
-            </div>
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
 
-            <div class="bg-zinc-800 rounded-3xl p-8 border-l-4 border-red-500">
-                <h3 class="text-2xl font-bold text-red-400 mb-3">
-                    ❌ MITO
-                </h3>
-                <p class="text-zinc-300">
-                    "Pular refeições ajuda a emagrecer."
-                </p>
-                <p class="mt-4 text-zinc-400">
-                    Isso pode aumentar a fome e favorecer excessos alimentares ao longo do dia.
-                </p>
-            </div>
-
-            <div class="bg-zinc-800 rounded-3xl p-8 border-l-4 border-emerald-500">
-                <h3 class="text-2xl font-bold text-emerald-400 mb-3">
-                    ✅ VERDADE
-                </h3>
-                <p class="text-zinc-300">
-                    Dormir bem contribui para o controle do peso.
-                </p>
-                <p class="mt-4 text-zinc-400">
-                    O sono regula hormônios relacionados à fome, saciedade e metabolismo.
-                </p>
-            </div>
-
-        </div>
-
-        <!-- Infográfico -->
-        <div class="text-center mb-10">
-            <h2 class="text-4xl font-bold mb-4">Infográfico: Como Prevenir a Obesidade</h2>
-            <p class="text-zinc-300">
-                Pequenas atitudes diárias fazem grande diferença.
-            </p>
-        </div>
-
-        <div class="grid md:grid-cols-5 gap-6 text-center">
-
-            <div class="bg-zinc-800 rounded-3xl p-6 card-hover">
-                <div class="text-5xl mb-4">🥗</div>
-                <h3 class="font-semibold text-lg mb-2">Alimente-se bem</h3>
-                <p class="text-zinc-400 text-sm">
-                    Priorize frutas, verduras e alimentos naturais.
-                </p>
-            </div>
-
-            <div class="bg-zinc-800 rounded-3xl p-6 card-hover">
-                <div class="text-5xl mb-4">💧</div>
-                <h3 class="font-semibold text-lg mb-2">Hidrate-se</h3>
-                <p class="text-zinc-400 text-sm">
-                    Beba água ao longo do dia e reduza refrigerantes.
-                </p>
-            </div>
-
-            <div class="bg-zinc-800 rounded-3xl p-6 card-hover">
-                <div class="text-5xl mb-4">🏃</div>
-                <h3 class="font-semibold text-lg mb-2">Movimente-se</h3>
-                <p class="text-zinc-400 text-sm">
-                    Faça atividades físicas regularmente.
-                </p>
-            </div>
-
-            <div class="bg-zinc-800 rounded-3xl p-6 card-hover">
-                <div class="text-5xl mb-4">😴</div>
-                <h3 class="font-semibold text-lg mb-2">Durma bem</h3>
-                <p class="text-zinc-400 text-sm">
-                    O sono adequado ajuda a controlar o peso.
-                </p>
-            </div>
-
-            <div class="bg-zinc-800 rounded-3xl p-6 card-hover">
-                <div class="text-5xl mb-4">📱</div>
-                <h3 class="font-semibold text-lg mb-2">Menos telas</h3>
-                <p class="text-zinc-400 text-sm">
-                    Reduza o tempo sentado e pratique mais atividades.
-                </p>
-            </div>
-
-        </div>
-
-        <!-- Dicas para adolescentes -->
-        <div class="mt-20">
-            <h2 class="text-4xl font-bold text-center mb-10">
-                Dicas Práticas para Adolescentes
-            </h2>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
-                    <div class="text-4xl mb-4">🎒</div>
-                    <h3 class="text-xl font-semibold mb-3">Leve lanches saudáveis</h3>
-                    <p class="text-zinc-400">
-                        Frutas, castanhas e sanduíches naturais ajudam a evitar ultraprocessados.
+                <div class="bg-zinc-800 rounded-3xl p-8 border-l-4 border-red-500">
+                    <h3 class="text-2xl font-bold text-red-400 mb-3">
+                        ❌ MITO
+                    </h3>
+                    <p class="text-zinc-300">
+                        "Obesidade acontece apenas porque a pessoa come demais."
+                    </p>
+                    <p class="mt-4 text-zinc-400">
+                        A obesidade é uma doença multifatorial. Genética, hormônios, ambiente, saúde mental e estilo de
+                        vida também influenciam.
                     </p>
                 </div>
 
-                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
-                    <div class="text-4xl mb-4">⚽</div>
-                    <h3 class="text-xl font-semibold mb-3">Pratique esportes</h3>
-                    <p class="text-zinc-400">
-                        Futebol, vôlei, caminhada, dança ou academia: escolha algo que você goste.
+                <div class="bg-zinc-800 rounded-3xl p-8 border-l-4 border-emerald-500">
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-3">
+                        ✅ VERDADE
+                    </h3>
+                    <p class="text-zinc-300">
+                        Exercícios físicos ajudam a prevenir e controlar a obesidade.
+                    </p>
+                    <p class="mt-4 text-zinc-400">
+                        A prática regular melhora o metabolismo, a saúde cardiovascular e a qualidade de vida.
                     </p>
                 </div>
 
-                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
-                    <div class="text-4xl mb-4">🥤</div>
-                    <h3 class="text-xl font-semibold mb-3">Troque refrigerantes</h3>
-                    <p class="text-zinc-400">
-                        Prefira água, água saborizada naturalmente ou sucos sem açúcar.
+                <div class="bg-zinc-800 rounded-3xl p-8 border-l-4 border-red-500">
+                    <h3 class="text-2xl font-bold text-red-400 mb-3">
+                        ❌ MITO
+                    </h3>
+                    <p class="text-zinc-300">
+                        "Pular refeições ajuda a emagrecer."
+                    </p>
+                    <p class="mt-4 text-zinc-400">
+                        Isso pode aumentar a fome e favorecer excessos alimentares ao longo do dia.
                     </p>
                 </div>
 
-                <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
-                    <div class="text-4xl mb-4">🧠</div>
-                    <h3 class="text-xl font-semibold mb-3">Cuide da saúde mental</h3>
-                    <p class="text-zinc-400">
-                        Estresse e ansiedade podem influenciar os hábitos alimentares.
+                <div class="bg-zinc-800 rounded-3xl p-8 border-l-4 border-emerald-500">
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-3">
+                        ✅ VERDADE
+                    </h3>
+                    <p class="text-zinc-300">
+                        Dormir bem contribui para o controle do peso.
+                    </p>
+                    <p class="mt-4 text-zinc-400">
+                        O sono regula hormônios relacionados à fome, saciedade e metabolismo.
                     </p>
                 </div>
 
             </div>
-        </div>
 
-    </div>
-</section>
+            <!-- Infográfico -->
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-bold mb-4">Infográfico: Como Prevenir a Obesidade</h2>
+                <p class="text-zinc-300">
+                    Pequenas atitudes diárias fazem grande diferença.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-5 gap-6 text-center">
+
+                <div class="bg-zinc-800 rounded-3xl p-6 card-hover">
+                    <div class="text-5xl mb-4">🥗</div>
+                    <h3 class="font-semibold text-lg mb-2">Alimente-se bem</h3>
+                    <p class="text-zinc-400 text-sm">
+                        Priorize frutas, verduras e alimentos naturais.
+                    </p>
+                </div>
+
+                <div class="bg-zinc-800 rounded-3xl p-6 card-hover">
+                    <div class="text-5xl mb-4">💧</div>
+                    <h3 class="font-semibold text-lg mb-2">Hidrate-se</h3>
+                    <p class="text-zinc-400 text-sm">
+                        Beba água ao longo do dia e reduza refrigerantes.
+                    </p>
+                </div>
+
+                <div class="bg-zinc-800 rounded-3xl p-6 card-hover">
+                    <div class="text-5xl mb-4">🏃</div>
+                    <h3 class="font-semibold text-lg mb-2">Movimente-se</h3>
+                    <p class="text-zinc-400 text-sm">
+                        Faça atividades físicas regularmente.
+                    </p>
+                </div>
+
+                <div class="bg-zinc-800 rounded-3xl p-6 card-hover">
+                    <div class="text-5xl mb-4">😴</div>
+                    <h3 class="font-semibold text-lg mb-2">Durma bem</h3>
+                    <p class="text-zinc-400 text-sm">
+                        O sono adequado ajuda a controlar o peso.
+                    </p>
+                </div>
+
+                <div class="bg-zinc-800 rounded-3xl p-6 card-hover">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="font-semibold text-lg mb-2">Menos telas</h3>
+                    <p class="text-zinc-400 text-sm">
+                        Reduza o tempo sentado e pratique mais atividades.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Dicas para adolescentes -->
+            <div class="mt-20">
+                <h2 class="text-4xl font-bold text-center mb-10">
+                    Dicas Práticas para Adolescentes
+                </h2>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                        <div class="text-4xl mb-4">🎒</div>
+                        <h3 class="text-xl font-semibold mb-3">Leve lanches saudáveis</h3>
+                        <p class="text-zinc-400">
+                            Frutas, castanhas e sanduíches naturais ajudam a evitar ultraprocessados.
+                        </p>
+                    </div>
+
+                    <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                        <div class="text-4xl mb-4">⚽</div>
+                        <h3 class="text-xl font-semibold mb-3">Pratique esportes</h3>
+                        <p class="text-zinc-400">
+                            Futebol, vôlei, caminhada, dança ou academia: escolha algo que você goste.
+                        </p>
+                    </div>
+
+                    <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                        <div class="text-4xl mb-4">🥤</div>
+                        <h3 class="text-xl font-semibold mb-3">Troque refrigerantes</h3>
+                        <p class="text-zinc-400">
+                            Prefira água, água saborizada naturalmente ou sucos sem açúcar.
+                        </p>
+                    </div>
+
+                    <div class="bg-zinc-800 rounded-3xl p-8 card-hover">
+                        <div class="text-4xl mb-4">🧠</div>
+                        <h3 class="text-xl font-semibold mb-3">Cuide da saúde mental</h3>
+                        <p class="text-zinc-400">
+                            Estresse e ansiedade podem influenciar os hábitos alimentares.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <!-- Treinos -->
     <section id="treino" class="py-24 section-bg">
@@ -403,13 +556,19 @@
             <div class="grid md:grid-cols-2 gap-12">
                 <div>
                     <h2 class="text-4xl font-bold mb-8">Treinos contra a obesidade</h2>
-                    <p class="text-zinc-300 mb-6">O treino ideal combina exercícios aeróbicos para queima calórica e musculação para ganho de massa muscular e aceleração do metabolismo.</p>
+                    <p class="text-zinc-300 mb-6">O treino ideal combina exercícios aeróbicos para queima calórica e
+                        musculação para ganho de massa muscular e aceleração do metabolismo.</p>
                     <ul class="space-y-4 text-zinc-300">
-                        <li><span class="font-semibold">Frequência recomendada:</span> pelo menos 150 minutos semanais de exercícios aeróbicos.</li>
-                        <li><span class="font-semibold">Treinamento resistido:</span> musculação de 2 a 3 vezes por semana.</li>
-                        <li><span class="font-semibold">Proporção inicial:</span> cerca de 70% aeróbicos e 30% fortalecimento.</li>
-                        <li><span class="font-semibold">Adaptação:</span> natação, hidroginástica e ciclismo são opções de baixo impacto.</li>
-                        <li><span class="font-semibold">Suporte médico:</span> consulte um médico antes de começar e busque acompanhamento profissional.</li>
+                        <li><span class="font-semibold">Frequência recomendada:</span> pelo menos 150 minutos semanais
+                            de exercícios aeróbicos.</li>
+                        <li><span class="font-semibold">Treinamento resistido:</span> musculação de 2 a 3 vezes por
+                            semana.</li>
+                        <li><span class="font-semibold">Proporção inicial:</span> cerca de 70% aeróbicos e 30%
+                            fortalecimento.</li>
+                        <li><span class="font-semibold">Adaptação:</span> natação, hidroginástica e ciclismo são opções
+                            de baixo impacto.</li>
+                        <li><span class="font-semibold">Suporte médico:</span> consulte um médico antes de começar e
+                            busque acompanhamento profissional.</li>
                     </ul>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-10">
@@ -417,7 +576,8 @@
                     <div class="space-y-4 text-zinc-300">
                         <p>Respeite seu ritmo e comece com intensidade leve, aumentando gradualmente.</p>
                         <p>Evite lesões priorizando constância em vez de esforço extremo logo no início.</p>
-                        <p>O acompanhamento profissional ajuda a personalizar o treino e ajustar a intensidade de forma segura.</p>
+                        <p>O acompanhamento profissional ajuda a personalizar o treino e ajustar a intensidade de forma
+                            segura.</p>
                     </div>
                 </div>
             </div>
@@ -430,90 +590,137 @@
             <h2 class="text-4xl font-bold text-center mb-16">Calcule seu IMC</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="prose prose-invert max-w-none text-lg">
-                    <p>O Índice de Massa Corporal (IMC) é uma medida que relaciona o peso e a altura de uma pessoa, sendo amplamente utilizado para avaliar se ela está com peso adequado.</p>
-                    <p class="mt-6">Para calcular o IMC, utilize a fórmula: IMC = peso (kg) / altura (m)². O IMC não mede a gordura corporal diretamente, por isso o ideal é consultar um endocrinologista para avaliação completa.</p>
+                    <p>O Índice de Massa Corporal (IMC) é uma medida que relaciona o peso e a altura de uma pessoa,
+                        sendo amplamente utilizado para avaliar se ela está com peso adequado.</p>
+                    <p class="mt-6">Para calcular o IMC, utilize a fórmula: IMC = peso (kg) / altura (m)². O IMC não
+                        mede a gordura corporal diretamente, por isso o ideal é consultar um endocrinologista para
+                        avaliação completa.</p>
                 </div>
                 <div class="bg-zinc-800 p-8 rounded-3xl">
                     <h3 class="text-2xl font-semibold mb-6">Como saber se tenho obesidade?</h3>
                     <div id="imc-result" class="hidden text-center py-6"></div>
                     <div class="space-y-4">
-                        <input type="number" id="peso" placeholder="Peso (kg)" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4">
-                        <input type="number" id="altura" placeholder="Altura (cm)" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4">
-                        <button onclick="calcularIMC()" 
-                                class="w-full bg-emerald-600 hover:bg-emerald-500 transition py-4 rounded-2xl font-semibold">
+                        <input type="number" id="peso" placeholder="Peso (kg)"
+                            class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4">
+                        <input type="number" id="altura" placeholder="Altura (m)"
+                            class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4">
+                        <button onclick="calcularIMC()"
+                            class="w-full bg-emerald-600 hover:bg-emerald-500 transition py-4 rounded-2xl font-semibold">
                             Calcular IMC
                         </button>
                     </div>
                 </div>
             </div>
-        </div>
-    <footer class="py-12 text-center text-zinc-500">
-        <p>© 2026 Vida Equilibrada - Construct by Gabriel Victor e Arthur Custodio 3º ano</p>
-    </footer>
 
-    <script>
-        function calcularIMC() {
-            const peso = parseFloat(document.getElementById('peso').value);
-            const alturaCm = parseFloat(document.getElementById('altura').value);
-            
-            if (!peso || !alturaCm) {
-                alert("Por favor, preencha peso e altura.");
-                return;
-            }
-            
-            const altura = alturaCm / 100;
-            const imc = (peso / (altura * altura)).toFixed(1);
-            let classificacao = '';
-            
-            if (imc < 18.5) classificacao = 'Abaixo do peso';
-            else if (imc < 25) classificacao = 'Peso normal';
-            else if (imc < 30) classificacao = 'Sobrepeso';
-            else classificacao = 'Obesidade';
-            
-            document.getElementById('imc-result').innerHTML = `
+            <div class="mt-12">
+                <h3 class="text-3xl font-bold text-center mb-8">
+                    Classificação do Índice de Massa Corporal
+                </h3>
+
+                <div class="overflow-x-auto">
+                    <div class="bg-zinc-900/80 rounded-3xl p-8 mt-8">
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            
+                            <div class="bg-cyan-600/20 border border-cyan-500 rounded-2xl p-6">
+                                <h4 class="text-xl font-bold text-cyan-400">Abaixo do peso</h4>
+                                <p class="font-semibold mt-2">IMC menor que 18,5</p>
+                                <p class="text-zinc-300 mt-3">
+                                    Pode indicar desnutrição ou baixo peso corporal.
+                                </p>
+                            </div>
+                            
+                            <div class="bg-green-600/20 border border-green-500 rounded-2xl p-6">
+                                <h4 class="text-xl font-bold text-green-400">Peso normal</h4>
+                            <p class="font-semibold mt-2">IMC entre 18,5 e 24,9</p>
+                            <p class="text-zinc-300 mt-3">
+                                Faixa considerada saudável para a maioria dos adultos.
+                            </p>
+                        </div>
+
+                        <div class="bg-yellow-600/20 border border-yellow-500 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-yellow-400">Sobrepeso</h4>
+                            <p class="font-semibold mt-2">IMC entre 25,0 e 29,9</p>
+                            <p class="text-zinc-300 mt-3">
+                                Aumento do risco para doenças cardiovasculares.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-orange-600/20 border border-orange-500 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-orange-400">Obesidade Grau I</h4>
+                            <p class="font-semibold mt-2">IMC entre 30,0 e 34,9</p>
+                            <p class="text-zinc-300 mt-3">
+                                Maior risco para diabetes e hipertensão.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-red-500/20 border border-red-400 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-red-300">Obesidade Grau II</h4>
+                            <p class="font-semibold mt-2">IMC entre 35,0 e 39,9</p>
+                            <p class="text-zinc-300 mt-3">
+                                Risco elevado de complicações de saúde.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-red-700/20 border border-red-600 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-red-500">Obesidade Grau III</h4>
+                            <p class="font-semibold mt-2">IMC acima de 40</p>
+                            <p class="text-zinc-300 mt-3">
+                                Também chamada obesidade mórbida e exige acompanhamento médico.
+                            </p>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="py-12 text-center text-zinc-500">
+            <p>© 2026 Vida Equilibrada - Construct by Gabriel Victor e Arthur Custodio 3º ano</p>
+        </footer>
+
+        <script>
+            function calcularIMC() {
+                const peso = parseFloat(document.getElementById('peso').value);
+                const alturaCm = parseFloat(document.getElementById('altura').value);
+
+                if (!peso || !alturaCm) {
+                    alert("Por favor, preencha peso e altura.");
+                    return;
+                }
+
+                const altura = alturaCm / 100;
+                const imc = (peso / (altura * altura)).toFixed(1);
+                let classificacao = '';
+
+                if (imc < 18.5)
+                    classificacao = 'Abaixo do peso';
+                else if (imc < 25)
+                    classificacao = 'Peso normal';
+                else if (imc < 30)
+                    classificacao = 'Sobrepeso';
+                else if (imc < 35)
+                    classificacao = 'Obesidade Grau I';
+                else if (imc < 40)
+                    classificacao = 'Obesidade Grau II';
+                else
+                    classificacao = 'Obesidade Grau III';
+
+                document.getElementById('imc-result').innerHTML = `
                 <div class="text-6xl font-bold text-emerald-400">${imc}</div>
                 <p class="mt-2 text-xl">${classificacao}</p>
             `;
-            document.getElementById('imc-result').classList.remove('hidden');
-        }
-
-        function avaliarQuiz() {
-            const q1 = document.querySelector('input[name="q1"]:checked');
-            const q2 = document.querySelector('input[name="q2"]:checked');
-            const q3 = document.querySelector('input[name="q3"]:checked');
-            
-            if (!q1 || !q2 || !q3) {
-                alert("Por favor, responda todas as perguntas do quiz.");
-                return;
+                document.getElementById('imc-result').classList.remove('hidden');
             }
-            
-            let score = 0;
-            if (q1.value === 'q1b') score += 1;
-            if (q2.value === 'q2a') score += 1;
-            if (q3.value === 'q3a') score += 1;
-            
-            const messages = [
-                'Continue estudando! Revise as seções de prevenção e diagnóstico.',
-                'Você está no caminho certo. Leia mais sobre hábitos saudáveis.',
-                'Muito bom! Você conhece bem os conceitos importantes.',
-                'Excelente! Você entende bem a obesidade e a prevenção.'
-            ];
-            
-            document.getElementById('quiz-result').innerHTML = `
-                <div class="text-3xl font-bold text-emerald-400">${score}/3 acertos</div>
-                <p class="mt-3 text-lg text-zinc-300">${messages[score]}</p>
-            `;
-        }
 
-        // Close checkbox menu when a link is clicked
-        document.querySelectorAll('.outer-menu .menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                const cb = document.getElementById('hamburger-toggle');
-                if(cb) cb.checked = false;
+            // Close checkbox menu when a link is clicked
+            document.querySelectorAll('.outer-menu .menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    const cb = document.getElementById('hamburger-toggle');
+                    if (cb) cb.checked = false;
+                });
             });
-        });
 
-        // Tailwind script já incluído
-    </script>
+        </script>
 </body>
 </html>
