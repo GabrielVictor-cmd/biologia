@@ -1,75 +1,203 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vida Equilibrada | Obesidade</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
         .site-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://picsum.photos/id/1015/2000/1200');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://picsum.photos/id/1015/2000/1200');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
+
         .section-bg {
             background: transparent;
         }
+
         .card-hover:hover {
             transform: translateY(-12px);
             transition: all 0.4s ease;
         }
-        .green-accent { color: #10b981; }
-        /* Hamburger menu CSS (desktop + mobile) */
-        :root{
-            --hamburger-size:48px;
-            --hamburger-bg: rgba(16,185,129,0.75);
-            --content-bg: rgba(16,185,129,0.97);
-            --main-color:#FEFEFE;
-            --anim-duration:0.4s;
-            --line-height:2px;
+
+        .green-accent {
+            color: #10b981;
         }
 
-        .outer-menu{ position: relative; display:inline-block; }
-        .outer-menu .checkbox-toggle{ position: absolute; width: var(--hamburger-size); height: var(--hamburger-size); opacity:0; cursor:pointer; z-index:30; right:0; }
-        .outer-menu .hamburger{ display:flex; align-items:center; justify-content:center; width:var(--hamburger-size); height:var(--hamburger-size); background:var(--hamburger-bg); border-radius:0.12em; padding:.25rem; cursor:pointer; z-index:20; }
-        .outer-menu .hamburger>div{ position:relative; width:60%; height:var(--line-height); background:var(--main-color); transition: all var(--anim-duration) ease; }
+        /* Hamburger menu CSS (desktop + mobile) */
+        :root {
+            --hamburger-size: 48px;
+            --hamburger-bg: rgba(16, 185, 129, 0.75);
+            --content-bg: rgba(16, 185, 129, 0.97);
+            --main-color: #FEFEFE;
+            --anim-duration: 0.4s;
+            --line-height: 2px;
+        }
+
+        .outer-menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .outer-menu .checkbox-toggle {
+            position: absolute;
+            width: var(--hamburger-size);
+            height: var(--hamburger-size);
+            opacity: 0;
+            cursor: pointer;
+            z-index: 30;
+            right: 0;
+        }
+
+        .outer-menu .hamburger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--hamburger-size);
+            height: var(--hamburger-size);
+            background: var(--hamburger-bg);
+            border-radius: 0.12em;
+            padding: .25rem;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .outer-menu .hamburger>div {
+            position: relative;
+            width: 60%;
+            height: var(--line-height);
+            background: var(--main-color);
+            transition: all var(--anim-duration) ease;
+        }
+
         .outer-menu .hamburger>div:before,
-        .outer-menu .hamburger>div:after{ content:''; position:absolute; left:0; width:100%; height:var(--line-height); background:inherit; transition: all var(--anim-duration) ease; }
-        .outer-menu .hamburger>div:before{ top:-10px; }
-        .outer-menu .hamburger>div:after{ top:10px; }
+        .outer-menu .hamburger>div:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: var(--line-height);
+            background: inherit;
+            transition: all var(--anim-duration) ease;
+        }
 
-        .outer-menu .checkbox-toggle:checked + .hamburger > div{ transform: rotate(135deg); }
-        .outer-menu .checkbox-toggle:checked + .hamburger > div:before,
-        .outer-menu .checkbox-toggle:checked + .hamburger > div:after{ top:0; transform: rotate(90deg); }
+        .outer-menu .hamburger>div:before {
+            top: -10px;
+        }
 
-        .outer-menu .menu{ position: fixed; top:0; right:0; width:100vw; height:100vh; pointer-events:none; visibility:hidden; display:flex; align-items:center; justify-content:center; z-index:15; }
-        .outer-menu .menu>div{ background:var(--content-bg); width:200vw; height:200vw; border-radius:50%; transform:scale(0); transition: transform var(--anim-duration) ease; display:flex; align-items:center; justify-content:center; }
-        .outer-menu .checkbox-toggle:checked ~ .menu{ pointer-events:auto; visibility:visible; }
-        .outer-menu .checkbox-toggle:checked ~ .menu>div{ transform:scale(1); transition-duration:0.75s; }
-        .outer-menu .menu ul{ list-style:none; padding:0 1rem; margin:0; text-align:center; }
-        .outer-menu .menu li{ margin:1rem 0; font-size:1.25rem; }
-        .outer-menu .menu a{ color:var(--main-color); text-decoration:none; }
+        .outer-menu .hamburger>div:after {
+            top: 10px;
+        }
+
+        .outer-menu .checkbox-toggle:checked+.hamburger>div {
+            transform: rotate(135deg);
+        }
+
+        .outer-menu .checkbox-toggle:checked+.hamburger>div:before,
+        .outer-menu .checkbox-toggle:checked+.hamburger>div:after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+        .outer-menu .menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 15;
+        }
+
+        .outer-menu .menu>div {
+            background: var(--content-bg);
+            width: 200vw;
+            height: 200vw;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform var(--anim-duration) ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .outer-menu .checkbox-toggle:checked~.menu {
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        .outer-menu .checkbox-toggle:checked~.menu>div {
+            transform: scale(1);
+            transition-duration: 0.75s;
+        }
+
+        .outer-menu .menu ul {
+            list-style: none;
+            padding: 0 1rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        .outer-menu .menu li {
+            margin: 1rem 0;
+            font-size: 1.25rem;
+        }
+
+        .outer-menu .menu a {
+            color: var(--main-color);
+            text-decoration: none;
+        }
 
         /* hamburger icons */
-        .outer-menu .hamburger i{ color:var(--main-color); font-size:1.15rem; line-height:1; }
-        .outer-menu .hamburger .close-icon{ display:none; }
-        .outer-menu .checkbox-toggle:checked + .hamburger .open-icon{ display:none; }
-        .outer-menu .checkbox-toggle:checked + .hamburger .close-icon{ display:block; }
+        .outer-menu .hamburger i {
+            color: var(--main-color);
+            font-size: 1.15rem;
+            line-height: 1;
+        }
+
+        .outer-menu .hamburger .close-icon {
+            display: none;
+        }
+
+        .outer-menu .checkbox-toggle:checked+.hamburger .open-icon {
+            display: none;
+        }
+
+        .outer-menu .checkbox-toggle:checked+.hamburger .close-icon {
+            display: block;
+        }
     </style>
 </head>
+
 <body class="site-bg text-zinc-100 overflow-x-hidden">
 
     <!-- Navbar -->
     <nav class="backdrop-blur-2xl fixed w-full z-50 text-white shadow-2xl border-b border-zinc-800/40 bg-zinc-950/70">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <div class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">🌿</div>
+                <div
+                    class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
+                    🌿</div>
                 <div>
                     <p class="text-base font-semibold">Vida Equilibrada</p>
                     <p class="text-xs text-zinc-400">Obesidade e bem-estar</p>
@@ -102,53 +230,70 @@
             </div>
         </div>
     </nav>
-<section class="py-24">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold mb-2 text-emerald-400">Referências bibliográficas</h1>
-        </div>
-        <div class="bg-zinc-800 rounded-3xl p-10">
-            <p class="text-lg text-zinc-300 leading-relaxed mb-4">
-                1. Falando de Obesidade. Disponível em: <a href="https://falandodeobesidade.com" class="text-emerald-400 hover:underline break-all">https://falandodeobesidade.com</a>. Acesso em: 17 de junho de 2026.
-            </p>
-            <br>
-            <!-- SEGUNDA TAG <P> CORRIGIDA ABAIXO (Adicionado 'break-all' ao link) -->
-            <p class="text-lg text-zinc-300 leading-relaxed mb-4">
-                2. Alimentação saudável, OPAS. Disponível em: <a href="https://www.paho.org/pt/topicos/alimentacao-saudavel" class="text-emerald-400 hover:underline break-all">https://www.paho.org/pt/topicos/alimentacao-saudavel</a>. Acesso em: 17 de junho de 2026.
-            </p>
-            <br>
-            <p class="text-lg text-zinc-300 leading-relaxed mb-4">
-                3. Saber da saúde. Disponível em: <a href="https://leveavidamaisleve.com.br" class="text-emerald-400 hover:underline break-all">https://leveavidamaisleve.com.br</a>. Acesso em: 17 de junho de 2026.
-            </p>
-            <br>
-
-            <div class="text-lg text-zinc-300 leading-relaxed mb-4">
-                Membros do grupo:
-                <ol class="list-decimal list-inside mt-2">
-                    <li>Kevin dos Santos</li>
-                    <li>Gabriel Victor</li>
-                    <li>Arthur Custódio</li>
-                    <li>Vitor Emanuel</li>
-                    <li>Leandro Henrique</li>
-                    <li>Isaque Souto</li>
-                    <li>Gustavo Gomes</li>
-                    <li>Igor Andrade</li>
-                </ol>
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold mb-2 text-emerald-400">Referências bibliográficas</h1>
+                <div class="flex justify-center mt-6">
+                    <a href="index.html#inicio"
+                        class="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 transition px-8 py-4 rounded-2xl text-lg font-semibold gap-3 shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-1">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar
+                    </a>
+                </div>
             </div>
-            <br>
-            <p class="text-lg text-zinc-300 leading-relaxed mb-4">
-                Esse é o nosso trabalho sobre obesidade apresentado para a professora Daniele Eveling, da matéria de Biologia.
+            <div class="bg-zinc-800 rounded-3xl p-10">
+                <p class="text-lg text-zinc-300 leading-relaxed mb-4">
+                    1. Falando de Obesidade. Disponível em: <a href="https://falandodeobesidade.com"
+                        class="text-emerald-400 hover:underline break-all">https://falandodeobesidade.com</a>. Acesso
+                    em: 17 de junho de 2026.
+                </p>
                 <br>
-                Agradecemos a sua visita!
-            </p>
+                <!-- SEGUNDA TAG <P> CORRIGIDA ABAIXO (Adicionado 'break-all' ao link) -->
+                <p class="text-lg text-zinc-300 leading-relaxed mb-4">
+                    2. Alimentação saudável, OPAS. Disponível em: <a
+                        href="https://www.paho.org/pt/topicos/alimentacao-saudavel"
+                        class="text-emerald-400 hover:underline break-all">https://www.paho.org/pt/topicos/alimentacao-saudavel</a>.
+                    Acesso em: 17 de junho de 2026.
+                </p>
+                <br>
+                <p class="text-lg text-zinc-300 leading-relaxed mb-4">
+                    3. Saber da saúde. Disponível em: <a href="https://leveavidamaisleve.com.br"
+                        class="text-emerald-400 hover:underline break-all">https://leveavidamaisleve.com.br</a>. Acesso
+                    em: 17 de junho de 2026.
+                </p>
+                <br>
 
-            <br>
-            <p class="text-lg font-bold text-emerald-400 leading-relaxed mb-4"> 
-                <strong>Este site é protegido por direitos autorais e é destinado apenas para fins educacionais. Qualquer reprodução ou distribuição não autorizada do conteúdo deste site é estritamente proibida. </strong>
-            </p>
+                <div class="text-lg text-zinc-300 leading-relaxed mb-4">
+                    Membros do grupo:
+                    <ol class="list-decimal list-inside mt-2">
+                        <li>Kevin dos Santos</li>
+                        <li>Gabriel Victor</li>
+                        <li>Arthur Custódio</li>
+                        <li>Vitor Emanuel</li>
+                        <li>Leandro Henrique</li>
+                        <li>Isaque Souto</li>
+                        <li>Gustavo Gomes</li>
+                        <li>Igor Andrade</li>
+                    </ol>
+                </div>
+                <br>
+                <p class="text-lg text-zinc-300 leading-relaxed mb-4">
+                    Esse é o nosso trabalho sobre obesidade apresentado para a professora Daniele Eveling, da matéria de
+                    Biologia.
+                    <br>
+                    Agradecemos a sua visita!
+                </p>
+
+                <br>
+                <p class="text-lg font-bold text-emerald-400 leading-relaxed mb-4">
+                    <strong>Este site é protegido por direitos autorais e é destinado apenas para fins educacionais.
+                        Qualquer reprodução ou distribuição não autorizada do conteúdo deste site é estritamente
+                        proibida. </strong>
+                </p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
     <footer class="py-12 text-center text-zinc-500">
@@ -157,13 +302,14 @@
 
     <script>
 
-            // Close checkbox menu when a link is clicked
-            document.querySelectorAll('.outer-menu .menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    const cb = document.getElementById('hamburger-toggle');
-                    if(cb) cb.checked = false;
-                });
+        // Close checkbox menu when a link is clicked
+        document.querySelectorAll('.outer-menu .menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                const cb = document.getElementById('hamburger-toggle');
+                if (cb) cb.checked = false;
             });
+        });
     </script>
 </body>
+
 </html>
